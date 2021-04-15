@@ -6,22 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/chongqiu00/chongqiu00.github.io.git">
-  <title>chongqiu00的破壳</title>
+  <title>socket通信 | chongqiu00的破壳</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    
-    <!-- <meta name="keywords" content="">
-    <meta name="description" content="在校本科生"> -->
-  
-  <meta name="description" content="在校本科生">
-<meta property="og:type" content="website">
-<meta property="og:title" content="chongqiu00的破壳">
-<meta property="og:url" content="https://github.com/chongqiu00/chongqiu00.github.io.git/index.html">
+  <meta name="description" content="Linux网络编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="socket通信">
+<meta property="og:url" content="https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/15/socket/index.html">
 <meta property="og:site_name" content="chongqiu00的破壳">
-<meta property="og:description" content="在校本科生">
+<meta property="og:description" content="Linux网络编程">
 <meta property="og:locale">
+<meta property="article:published_time" content="2021-03-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-04-15T01:08:24.114Z">
 <meta property="article:author" content="chongqiu00">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="chongqiu00的破壳" type="application/atom+xml">
@@ -235,25 +234,25 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-  
-    <article id="post-socket" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-socket" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/03/15/socket/" target="_blank">socket通信</a>
-  
+    <h1 class="article-title" itemprop="name">
+      socket通信
     </h1>
   
 
 
   
   
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2021/03/15/socket/" class="archive-article-date">
         <time datetime="2021-03-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-15</time>
 </a>
@@ -261,6 +260,27 @@
   
   
     
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.7k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">6分</span>
+    </span>
+  </span>
+</div>
+
 
   
   </header>
@@ -276,11 +296,104 @@
 <li>close()//关闭socket连接，释放资源。</li>
 </ol>
 <p>1）创建客户端的socket。<br>2）向服务器发起连接请求。<br>3）与服务端通信，发送一个报文后等待回复，然后再发下一个报文。<br>4）不断的重复第3）步，直到全部的数据被发送完。<br>5）第4步：关闭socket，释放资源。</p>
-    
-    
+<span id="more"></span>
+
+<p><strong>服务端：</strong></p>
+<ol>
+<li>socket()//创建流式socket。</li>
+<li>bind()//指定用于通信的ip地址和端口。</li>
+<li>listen()//把socket设置为监听模式。</li>
+<li>accept()//接受客户端的连接。</li>
+<li>recv()/send()//接收、发送数据。</li>
+<li>close() // 关闭socket连接，释放资源。</li>
+</ol>
+<p>1）创建服务端的socket。<br>2）把服务端用于通信的地址和端口绑定到socket上。<br>3）把socket设置为监听模式。<br>4）接受客户端的连接。<br>5）与客户端通信，接收客户端发过来的报文后，回复处理结果。<br>6）不断的重复第5）步，直到客户端断开连接。<br>7）关闭socket，释放资源。</p>
+<h4 id="2-所涉及到的函数说明"><a href="#2-所涉及到的函数说明" class="headerlink" title="2.所涉及到的函数说明"></a>2.所涉及到的函数说明</h4><p><strong>socket函数：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">创建一个新的socket，就是向系统申请一个socket资源。</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">    domain：协议域，填AF_INET</span></span><br><span class="line"><span class="comment">    type：指定socket类型，填SOCK_STREAM</span></span><br><span class="line"><span class="comment">    protocol：指定协议， 填0</span></span><br><span class="line"><span class="comment">返回值：成功-返回一个socket，失败-返回-1，错误原因存放于errno。（除非资源被耗尽一般不会失败）</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">socket</span><span class="params">(<span class="keyword">int</span> domain, <span class="keyword">int</span> type, <span class="keyword">int</span> protocol)</span></span>;</span><br><span class="line"><span class="comment">//例子：</span></span><br><span class="line">socket(AF_INET, SOCK_STREAM, <span class="number">0</span>));</span><br></pre></td></tr></table></figure>
+<p><strong>gethostbyname函数：</strong><br><strong>gethostbyname只用于客户端。</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">把ip地址或域名转换为hostent 结构体表达的地址。</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">    name：域名或者主机名</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">如果成功，返回一个hostent结构指针，失败返回NULL。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function">struct hostent *<span class="title">gethostbyname</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *name)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>gethostbyname只是把字符串的ip地址转换为结构体的ip地址，只要地址格式没错，一般不会返回错误。失败时不会设置errno的值</p>
+<p><strong>connect函数：</strong><br><strong>只用于客户端！！！</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">向服务器发起连接请求。将参数sockfd的socket连至参数serv_addr指定的服务端。</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">    serv_addr:本地的socket资源。</span></span><br><span class="line"><span class="comment">    serv_addr:要连接的服务端。</span></span><br><span class="line"><span class="comment">    sddrlen:sockaddr的结构长度。</span></span><br><span class="line"><span class="comment">返回值：成功-返回0， 失败-返回-1，错误原因存放于errno。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">connect</span><span class="params">(<span class="keyword">int</span> sockfd, struct sockaddr * serv_addr, <span class="keyword">int</span> addrlen)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>函数返回失败可能情况：</p>
+<ol>
+<li>服务端地址出错</li>
+<li>端口出错</li>
+<li>服务器没有启动</li>
+</ol>
+<p><strong>recv函数：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">接收对端socket发送过来的数据。不论是客户端还是服务端，应用程序都用recv函数接收来自TCP连接的另一端发送过来数据。</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">    socket:为已建立好连接的socket。</span></span><br><span class="line"><span class="comment">    buf:用于接收数据的内存地址，类型任意。</span></span><br><span class="line"><span class="comment">    len:接收数据的长度，不可超过buf大小。</span></span><br><span class="line"><span class="comment">    flags:暂且填0。</span></span><br><span class="line"><span class="comment">返回值：  </span></span><br><span class="line"><span class="comment">        出错时返回-1,如果socket被对端关闭，返回值为0。</span></span><br><span class="line"><span class="comment">        如果recv函数返回的错误（&lt;=0），表示通信通道已不可用。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">ssize_t</span> <span class="title">recv</span><span class="params">(<span class="keyword">int</span> sockfd, <span class="keyword">void</span> *buf, <span class="keyword">size_t</span> len, <span class="keyword">int</span> flags)</span></span>;</span><br></pre></td></tr></table></figure>
+<p><strong>send函数：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">send函数用于把数据通过socket发送给对端。不论是客户端还是服务端，应用程序都用send函数来向TCP连接的另一端发送数据。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">    sockfd：为已建立好连接的socket。</span></span><br><span class="line"><span class="comment">    buf：为需要发送的数据的内存地址</span></span><br><span class="line"><span class="comment">    len：需要发送的数据的长度</span></span><br><span class="line"><span class="comment">    flags：填0</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">    成功-返回已发送的字符数</span></span><br><span class="line"><span class="comment">    出错-返回-1，错误信息errno被标记</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">ssize_t</span> <span class="title">send</span><span class="params">(<span class="keyword">int</span> sockfd, <span class="keyword">const</span> <span class="keyword">void</span> *buf, <span class="keyword">size_t</span> len, <span class="keyword">int</span> flags)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>注意，就算是网络断开，或socket已被对端关闭，send函数不会立即报错，要过几秒才会报错。如果send函数返回的错误（&lt;=0），表示通信链路已不可用。</p>
+<p><strong>bind函数：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">服务端把用于通信的地址和端口绑定到socket上。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">    sockfd：需要绑定的socket。</span></span><br><span class="line"><span class="comment">    addr：存放了服务端用于通信的地址和端口。</span></span><br><span class="line"><span class="comment">    addrlen：addr结构体的大小。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">    成功-0</span></span><br><span class="line"><span class="comment">    失败-  -1，错误原因存于errno 中。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bind</span><span class="params">(<span class="keyword">int</span> sockfd, <span class="keyword">const</span> struct sockaddr *addr,<span class="keyword">socklen_t</span> addrlen)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>错误原因：<br>如果绑定的地址错误，或端口已被占用，bind函数一定会报错，否则一般不会返回错误。</p>
+<p><strong>listen函数：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">listen函数把主动连接socket变为被动连接的socket，使得这个socket可以接受其它socket的连接请求，从而成为一个服务端的socket。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">    sockfd：是已经被bind过的socket。</span></span><br><span class="line"><span class="comment">    backlog：填5、10都行，一般不超过30。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">    成功-0</span></span><br><span class="line"><span class="comment">    失败-  -1，</span></span><br><span class="line"><span class="comment">    错误原因存于errno 中。listen函数一般不会返回错误。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">listen</span><span class="params">(<span class="keyword">int</span> sockfd, <span class="keyword">int</span> backlog)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>当调用listen之后，服务端的socket就可以调用accept来接受客户端的连接请求。</p>
+<p><strong>accept函数：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">服务端接受客户端的连接。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">    sockfd:是已经被listen过的socket。</span></span><br><span class="line"><span class="comment">    addr:用于存放客户端的地址信息，用sockaddr结构体表达，如果不需要客户端的地址，可以填0。</span></span><br><span class="line"><span class="comment">    addrlen:用于存放addr参数的长度，如果addr为0，addrlen也填0。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">    成功-0</span></span><br><span class="line"><span class="comment">    失败-  -1,</span></span><br><span class="line"><span class="comment">    错误原因存于errno 中。</span></span><br><span class="line"><span class="comment">    accept在等待的过程中，如果被中断或其它的原因，函数返回-1，表示失败，</span></span><br><span class="line"><span class="comment">    如果失败，可以重新accept。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">accept</span><span class="params">(<span class="keyword">int</span> sockfd,struct sockaddr *addr,<span class="keyword">socklen_t</span> *addrlen)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>accept函数等待客户端的连接，如果没有客户端连上来，它就一直等待，这种方式称之为阻塞。accept等待到客户端的连接后，创建一个新的socket，函数返回值就是这个新的socket，服务端使用这个新的socket和客户端进行报文的收发。</p>
+<p><strong>close函数：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">close</span><span class="params">(<span class="keyword">int</span> sockfd)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>数据结构：</strong></p>
+<p><strong>客户端程序指定服务端的Ip地址：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 向服务器发起连接请求。</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">hostent</span>* <span class="title">h</span>;</span></span><br><span class="line"><span class="keyword">if</span> ( (h = gethostbyname(“<span class="number">192.168</span><span class="number">.43</span><span class="number">.168</span>”)) == <span class="number">0</span> )   <span class="comment">// 指定服务端的ip地址。</span></span><br><span class="line">&#123; </span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;gethostbyname failed.\n&quot;</span>); </span><br><span class="line">  close(sockfd); </span><br><span class="line">  <span class="keyword">return</span> <span class="number">-1</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">servaddr</span>;</span></span><br><span class="line"><span class="built_in">memset</span>(&amp;servaddr,<span class="number">0</span>,<span class="keyword">sizeof</span>(servaddr));</span><br><span class="line">servaddr.sin_family = AF_INET;</span><br><span class="line">servaddr.sin_port = htons(<span class="number">5000</span>)); <span class="comment">// 指定服务端的通信端口。</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>服务端程序绑定地址：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 把服务端用于通信的地址和端口绑定到socket上。</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">servaddr</span>;</span>    <span class="comment">// 服务端地址信息的数据结构。</span></span><br><span class="line"><span class="built_in">memset</span>(&amp;servaddr,<span class="number">0</span>,<span class="keyword">sizeof</span>(servaddr));</span><br><span class="line">servaddr.sin_family = AF_INET;  <span class="comment">// 协议族，在socket编程中只能是AF_INET。</span></span><br><span class="line">servaddr.sin_addr.s_addr = htonl(INADDR_ANY);          <span class="comment">// 任意ip地址。</span></span><br><span class="line"><span class="comment">//servaddr.sin_addr.s_addr = inet_addr(&quot;192.168.190.134&quot;); // 指定ip地址。</span></span><br><span class="line">servaddr.sin_port = htons(atoi(argv[<span class="number">1</span>]));  <span class="comment">// 指定通信端口。</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>具体实现：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//以后补充</span></span><br></pre></td></tr></table></figure>
 
     
 
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          chongqiu00
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/15/socket/" title="socket通信" target="_blank">https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/15/socket/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
     
 
   </div>
@@ -301,16 +414,76 @@
     
 
     
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/03/15/socket/">展开全文 >></a>
-    </p>
+
     
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/15/socket/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
 
     
     <div class="clearfix"></div>
   </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2021/03/12/zhizheng/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">指针</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -325,109 +498,56 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-zhizheng" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/03/12/zhizheng/" target="_blank">指针</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/03/12/zhizheng/" class="archive-article-date">
-        <time datetime="2021-03-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="一，指针"><a href="#一，指针" class="headerlink" title="一，指针"></a>一，指针</h2><h4 id="1-1，清楚四个关于指针的概念"><a href="#1-1，清楚四个关于指针的概念" class="headerlink" title="1.1，清楚四个关于指针的概念"></a>1.1，清楚四个关于指针的概念</h4><ol>
-<li><strong>指针的类型</strong></li>
-<li><strong>指针所指向的类型</strong></li>
-<li><strong>指针的值或者指针所指向的内存区</strong></li>
-<li><strong>指针本身所占据的内存区</strong></li>
-</ol>
-<blockquote>
-<p><strong>指针的类型</strong>:去掉指针名字即可。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *ptr; <span class="comment">//指针类型为int *</span></span><br><span class="line"><span class="keyword">char</span> *ptr;<span class="comment">//指针类型为char *</span></span><br><span class="line"><span class="keyword">int</span> * *ptr;<span class="comment">//指针类型为int*</span></span><br><span class="line"><span class="keyword">int</span> (*ptr)[<span class="number">3</span>];<span class="comment">//指针类型为int (* )[3]</span></span><br><span class="line"><span class="keyword">int</span> *(*ptr)[<span class="number">4</span>];<span class="comment">//指针类型为int *(* )[4]</span></span><br></pre></td></tr></table></figure>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C/C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/03/12/zhizheng/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1socket"><span class="toc-number">1.</span> <span class="toc-text">网络通信socket</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%9C%8D%E5%8A%A1%E6%B5%81%E7%A8%8B"><span class="toc-number">1.0.1.</span> <span class="toc-text">1.服务流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%89%80%E6%B6%89%E5%8F%8A%E5%88%B0%E7%9A%84%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="toc-number">1.0.2.</span> <span class="toc-text">2.所涉及到的函数说明</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
 
+
+
+
+
+
+
+
   
+  <div id="gitment-ctn"></div>
   
+    <!-- 中文 -->
+    <link rel="stylesheet" href="/lib/gitment.css">
+    <script src="/lib/gitment.js"></script>
+  
+  <script>
+    <!-- id: "socket通信" -->
+    var gitment = new Gitment({
+      id: "20210315000000",
+      owner: 'chongqiu00',
+      repo: 'yilia-plus-demo',
+      oauth: {
+        client_id: '65fd2a8008701a9516da',
+        client_secret: 'b26fe24cbb09b60dbfe26684109c2a2151dd8dc5',
+      },
+    })
+    gitment.render('gitment-ctn')
+  </script>
+
+
+  
+
 
 
           </div>
@@ -467,8 +587,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
