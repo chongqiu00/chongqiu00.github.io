@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/chongqiu00/chongqiu00.github.io.git">
-  <title>Archives: 2019 | chongqiu00的破壳</title>
+  <title>指针 | chongqiu00的破壳</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="在校本科生">
-<meta property="og:type" content="website">
-<meta property="og:title" content="chongqiu00的破壳">
-<meta property="og:url" content="https://github.com/chongqiu00/chongqiu00.github.io.git/archives/2019/index.html">
+  <meta name="description" content="指针的详细解释">
+<meta property="og:type" content="article">
+<meta property="og:title" content="指针">
+<meta property="og:url" content="https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/12/zhizheng/index.html">
 <meta property="og:site_name" content="chongqiu00的破壳">
-<meta property="og:description" content="在校本科生">
+<meta property="og:description" content="指针的详细解释">
 <meta property="og:locale">
+<meta property="article:published_time" content="2021-03-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-04-15T00:50:36.779Z">
 <meta property="article:author" content="chongqiu00">
+<meta property="article:tag" content="编程语言">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="chongqiu00的破壳" type="application/atom+xml">
@@ -219,65 +222,321 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-zhizheng" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/06/05/Git%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95%E7%9A%84%E6%96%B9%E6%B3%95/" class="archive-article-date">
-        <time datetime="2019-06-05T02:22:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-05</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/06/05/Git%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95%E7%9A%84%E6%96%B9%E6%B3%95/" target="_blank">Git彻底删除历史提交记录的方法</a>
   
+    <h1 class="article-title" itemprop="name">
+      指针
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2021/03/12/zhizheng/" class="archive-article-date">
+        <time datetime="2021-03-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-12</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.4k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">5分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<hr>
+<h2 id="一，指针"><a href="#一，指针" class="headerlink" title="一，指针"></a>一，指针</h2><h4 id="1-1，清楚四个关于指针的概念"><a href="#1-1，清楚四个关于指针的概念" class="headerlink" title="1.1，清楚四个关于指针的概念"></a>1.1，清楚四个关于指针的概念</h4><ol>
+<li><strong>指针的类型</strong></li>
+<li><strong>指针所指向的类型</strong></li>
+<li><strong>指针的值或者指针所指向的内存区</strong></li>
+<li><strong>指针本身所占据的内存区</strong></li>
+</ol>
+<blockquote>
+<p><strong>指针的类型</strong>:去掉指针名字即可。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *ptr; <span class="comment">//指针类型为int *</span></span><br><span class="line"><span class="keyword">char</span> *ptr;<span class="comment">//指针类型为char *</span></span><br><span class="line"><span class="keyword">int</span> * *ptr;<span class="comment">//指针类型为int*</span></span><br><span class="line"><span class="keyword">int</span> (*ptr)[<span class="number">3</span>];<span class="comment">//指针类型为int (* )[3]</span></span><br><span class="line"><span class="keyword">int</span> *(*ptr)[<span class="number">4</span>];<span class="comment">//指针类型为int *(* )[4]</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<blockquote>
+<p><strong>指针所指向的类型</strong>：去掉*和指针名字即可。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *ptr; <span class="comment">//指针所指向的类型为int </span></span><br><span class="line"><span class="keyword">char</span> *ptr;<span class="comment">//指针所指向的类型为char </span></span><br><span class="line"><span class="keyword">int</span> * *ptr;<span class="comment">//指针所指向的类型为int</span></span><br><span class="line"><span class="keyword">int</span> (*ptr)[<span class="number">3</span>];<span class="comment">//指针所指向的类型为int ( )[3]</span></span><br><span class="line"><span class="keyword">int</span> *(*ptr)[<span class="number">4</span>];<span class="comment">//指针所指向的类型为int *(  )[4]</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>指针的值或者指针所指向的内存区</strong>:指针本身所存储的数值，这个值被当作一个地址（首地址）。<br>例如: 定义了一个10个整型的数组变量， <code>int arr[10]=&#123;0,&#125;;</code>,  <code>int *p = arr</code>,那么p就是指向这个数组的首地址arr[0]。</p>
+</blockquote>
+<blockquote>
+<p><strong>指针本身所占据的内存区</strong>:字面意思</p>
+</blockquote>
+<h4 id="1-2，指针的大小"><a href="#1-2，指针的大小" class="headerlink" title="1.2，指针的大小"></a>1.2，指针的大小</h4><p>想呀，指针就是区别存储的地址的，所以指针的大小就是这台计算机的内存地址数目<br>一个32位的计算机，可以存放2^32个地址， 即指针的大小位4个字节。</p>
+<h4 id="1-3，熟悉-amp-和-两个符号"><a href="#1-3，熟悉-amp-和-两个符号" class="headerlink" title="1.3，熟悉&amp; 和 * 两个符号"></a>1.3，熟悉&amp; 和 * 两个符号</h4><p>&amp;:       取地址符，获取变量的地址<br>*：      1，乘法运算符 2， 间接运算符，可以解析到指针所指向的变量的值</p>
+<blockquote>
+<p>举例：</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> *ptr = &amp;a;<span class="comment">//ptr指向a的地址</span></span><br><span class="line">*ptr = a;<span class="comment">//解析ptr所指向的内存空间内容</span></span><br></pre></td></tr></table></figure>
+<p>注意：指针必须要对它赋值，才可以使用，不然这个指针就是一个野指针，使用是非常危险的。</p>
+<h4 id="1-4，指针和数组"><a href="#1-4，指针和数组" class="headerlink" title="1.4，指针和数组"></a>1.4，指针和数组</h4><p><strong>切记数组的首地址即数组名地址不可修改！！！</strong></p>
+<blockquote>
+<p>举例：</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">10</span>] = &#123;<span class="number">0</span>,&#125;;</span><br><span class="line"><span class="keyword">int</span> *ptr = arr;<span class="comment">//arr数组名就是数组的首地址，即ptr == arr == &amp;arr[0] </span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, ptr++);<span class="comment">//对数组指针的加减法，就是以指针所指向类型为单位进行加减法</span></span><br><span class="line">                             <span class="comment">//起先ptr指向arr, ptr++后，指向arr+1这个变量的首地址</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-5，指针和结构体"><a href="#1-5，指针和结构体" class="headerlink" title="1.5，指针和结构体"></a>1.5，指针和结构体</h4><blockquote>
+<p>举例：</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">st_student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">   <span class="keyword">char</span> name[<span class="number">10</span>];</span><br><span class="line">   <span class="keyword">int</span> age;</span><br><span class="line">   <span class="keyword">char</span> <span class="class"><span class="keyword">class</span>[30];</span></span><br><span class="line">&#125;STU, *PSTU;   </span><br><span class="line"><span class="comment">//PSTU =  struct st_student*  </span></span><br><span class="line"></span><br><span class="line"><span class="comment">//表示方法一：</span></span><br><span class="line">PSTU  pstu;</span><br><span class="line">pstu-&gt;name = <span class="string">&quot;dd&quot;</span>;    </span><br><span class="line">pstu-&gt;age = <span class="number">14</span>;    </span><br><span class="line">pstu-&gt;<span class="class"><span class="keyword">class</span> =</span> <span class="string">&quot;电信师范2班&quot;</span>；    </span><br><span class="line"></span><br><span class="line"><span class="comment">//表示方法二：</span></span><br><span class="line">STU stu;</span><br><span class="line">stu.name = <span class="string">&quot;dd&quot;</span>;</span><br><span class="line">stu.age = <span class="string">&quot;14&quot;</span>;</span><br><span class="line">stu.class = <span class="string">&quot;电信师范2班&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//表示方法三：</span></span><br><span class="line">STU stu;</span><br><span class="line">(&amp;stu)-&gt;name = <span class="string">&quot;dd&quot;</span>;</span><br><span class="line">(&amp;stu)-&gt;age = <span class="number">14</span>;</span><br><span class="line">(&amp;stu)-&gt;<span class="class"><span class="keyword">class</span> =</span> <span class="string">&quot;电信师范2班&quot;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>注意存放结构体对象的各个成员时，在某种编译环境下，需要字对齐，<br>使用 <code>#pragma pack(1)</code>可以是其中的空隙消除。</p>
+<h4 id="1-6，指针和函数"><a href="#1-6，指针和函数" class="headerlink" title="1.6，指针和函数"></a>1.6，指针和函数</h4><p>函数指针：</p>
+<blockquote>
+<p>举例：</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*pFun)</span><span class="params">(<span class="keyword">int</span>)</span></span>;<span class="comment">//声明了一个返回值为void, 函数参数为int的函数指针。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun1</span><span class="params">(<span class="keyword">int</span> a)</span></span>;</span><br><span class="line">pFun = fun1;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-7，指针和const"><a href="#1-7，指针和const" class="headerlink" title="1.7，指针和const"></a>1.7，指针和const</h4><p>看const其后修饰的是什么就限制谁；</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//这两个的功能是一样的。</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p = &amp;i;<span class="comment">//const修饰*i，即变量，就是限制变量不可以更改，指针可以转而指向其他。</span></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> *p = &amp;i;<span class="comment">//与上句功能一致。</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> p = &amp;i; <span class="comment">//const 修饰i, 即指针，就是限制指针不可以更改，指针所指向的变量的值可以更改。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> * <span class="keyword">const</span> p = &amp;i; <span class="comment">//结合以上两种情况，即不可以更改指针，也不可以更改指针所指向的变量值。</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="1-8，指针的灵活性"><a href="#1-8，指针的灵活性" class="headerlink" title="1.8，指针的灵活性"></a>1.8，指针的灵活性</h4><p>你想把一个数据当作一个地址的数值就可以当作一个地址的数值，<br>你也可以把指针的值即地址当作一个数据。</p>
+<p>只要符合语法规则就可以进行转换。</p>
+<p>当然，我们还可以使用（变量类型 *）强制转化指针的类型。</p>
+<blockquote>
+<p>例如:</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">char</span> *ptr = (<span class="keyword">char</span> *) &amp;i;</span><br><span class="line"><span class="comment">//注意数据丢失问题。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-9，几道关于指针的题目"><a href="#1-9，几道关于指针的题目" class="headerlink" title="1.9，几道关于指针的题目"></a>1.9，几道关于指针的题目</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">GetMemory</span><span class="params">(<span class="keyword">char</span> *p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   p = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">100</span>);</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">char</span> *str = <span class="literal">NULL</span>;</span><br><span class="line">   GetMemory(str);</span><br><span class="line">   <span class="built_in">strcpy</span>(str, <span class="string">&quot;hello world&quot;</span>);</span><br><span class="line">   <span class="built_in">printf</span>(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">GetMemory</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> p[] = <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> *str =<span class="literal">NULL</span>;</span><br><span class="line">  str = GetMemory();</span><br><span class="line">  <span class="built_in">printf</span>(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">GetMemory2</span><span class="params">(<span class="keyword">char</span> **p, <span class="keyword">int</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  *p = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(num);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> *str = <span class="literal">NULL</span>;</span><br><span class="line">  GetMemory(&amp;str,<span class="number">100</span>);</span><br><span class="line">  <span class="built_in">strcpy</span>(str, <span class="string">&quot;hello&quot;</span>);</span><br><span class="line">  <span class="built_in">printf</span>(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">GetMemory2</span><span class="params">(<span class="keyword">char</span> **p, <span class="keyword">int</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  *p = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(num);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> *str = <span class="literal">NULL</span>;</span><br><span class="line">  GetMemory(&amp;str,<span class="number">100</span>);</span><br><span class="line">  <span class="built_in">strcpy</span>(str, <span class="string">&quot;hello&quot;</span>);</span><br><span class="line">  <span class="built_in">printf</span>(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>思考上面的四段代码的结果和现象。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注意修改地址，我们要传入地址的地址。</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">**在strdest字符串中，查找serach，并将其查找到的地址返回到*pstr中。</span></span><br><span class="line"><span class="comment">**成功返回-true, 失败返回-false。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">strcha</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* strdest, <span class="keyword">char</span> serach, <span class="keyword">char</span> ** ppstr)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> arr[<span class="number">10</span>] = <span class="string">&quot;zwwhappyl&quot;</span>;</span><br><span class="line">  <span class="keyword">char</span> *ptr = arr;</span><br><span class="line">  <span class="keyword">if</span> (strcha(arr, <span class="string">&#x27;h&#x27;</span>, &amp;ptr))</span><br><span class="line">  &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;查找成功！%c地址为%#x\n&quot;</span>, <span class="string">&#x27;h&#x27;</span>, &amp;ptr);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;查找失败！\n&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">strcha</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* strdest, <span class="keyword">char</span> serach, <span class="keyword">char</span> ** ppstr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> *pstrdest = (<span class="keyword">char</span>*) strdest;</span><br><span class="line">  <span class="keyword">while</span> (pstrdest &amp;&amp; (*++pstrdest == serach));</span><br><span class="line">  <span class="keyword">if</span> (*pstrdest != <span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      *ppstr = pstrdest;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          chongqiu00
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/12/zhizheng/" title="指针" target="_blank">https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/12/zhizheng/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">日记本</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编程语言</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+    
 
     
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/12/zhizheng/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%EF%BC%8C%E6%8C%87%E9%92%88"><span class="toc-number">1.</span> <span class="toc-text">一，指针</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1%EF%BC%8C%E6%B8%85%E6%A5%9A%E5%9B%9B%E4%B8%AA%E5%85%B3%E4%BA%8E%E6%8C%87%E9%92%88%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.0.1.</span> <span class="toc-text">1.1，清楚四个关于指针的概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2%EF%BC%8C%E6%8C%87%E9%92%88%E7%9A%84%E5%A4%A7%E5%B0%8F"><span class="toc-number">1.0.2.</span> <span class="toc-text">1.2，指针的大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3%EF%BC%8C%E7%86%9F%E6%82%89-amp-%E5%92%8C-%E4%B8%A4%E4%B8%AA%E7%AC%A6%E5%8F%B7"><span class="toc-number">1.0.3.</span> <span class="toc-text">1.3，熟悉&amp; 和 * 两个符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4%EF%BC%8C%E6%8C%87%E9%92%88%E5%92%8C%E6%95%B0%E7%BB%84"><span class="toc-number">1.0.4.</span> <span class="toc-text">1.4，指针和数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5%EF%BC%8C%E6%8C%87%E9%92%88%E5%92%8C%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-number">1.0.5.</span> <span class="toc-text">1.5，指针和结构体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6%EF%BC%8C%E6%8C%87%E9%92%88%E5%92%8C%E5%87%BD%E6%95%B0"><span class="toc-number">1.0.6.</span> <span class="toc-text">1.6，指针和函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7%EF%BC%8C%E6%8C%87%E9%92%88%E5%92%8Cconst"><span class="toc-number">1.0.7.</span> <span class="toc-text">1.7，指针和const</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-8%EF%BC%8C%E6%8C%87%E9%92%88%E7%9A%84%E7%81%B5%E6%B4%BB%E6%80%A7"><span class="toc-number">1.0.8.</span> <span class="toc-text">1.8，指针的灵活性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-9%EF%BC%8C%E5%87%A0%E9%81%93%E5%85%B3%E4%BA%8E%E6%8C%87%E9%92%88%E7%9A%84%E9%A2%98%E7%9B%AE"><span class="toc-number">1.0.9.</span> <span class="toc-text">1.9，几道关于指针的题目</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+  
+  <div id="gitment-ctn"></div>
+  
+    <!-- 中文 -->
+    <link rel="stylesheet" href="/lib/gitment.css">
+    <script src="/lib/gitment.js"></script>
+  
+  <script>
+    <!-- id: "指针" -->
+    var gitment = new Gitment({
+      id: "20210312000000",
+      owner: 'chongqiu00',
+      repo: 'yilia-plus-demo',
+      oauth: {
+        client_id: '65fd2a8008701a9516da',
+        client_secret: 'b26fe24cbb09b60dbfe26684109c2a2151dd8dc5',
+      },
+    })
+    gitment.render('gitment-ctn')
+  </script>
+
+
+  
+
 
 
           </div>
@@ -318,8 +577,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
@@ -398,7 +657,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">日记本</a>
+                <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
               </li>
             
             <div class="clearfix"></div>
