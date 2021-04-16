@@ -255,8 +255,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <span id="more"></span>
-<p>只是占个地！！！</p>
+    <p>只是占个地！！！</p>
 
     
 
@@ -342,8 +341,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <span id="more"></span>
-<p>只是占个地！！！</p>
+    <p>只是占个地！！！</p>
 
     
 
@@ -371,124 +369,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2021/03/16/OS/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ftp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/03/16/ftp/" target="_blank">ftp协议及其他协议</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/03/16/ftp/" class="archive-article-date">
-        <time datetime="2021-03-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <span id="more"></span>
-<h4 id="ftp协议使用与配置："><a href="#ftp协议使用与配置：" class="headerlink" title="ftp协议使用与配置："></a>ftp协议使用与配置：</h4><p><strong>1. 配置</strong></p>
-<ol>
-<li>涉及到防火墙的相关知识，首先要开通防火墙的端口和访问协议，各个版本的Linux相关配置命令有所不同。</li>
-<li>打开防火墙。</li>
-<li>下载安装ftp和vsftpd。</li>
-<li>设置为被动模式呀！！！<br> 即可。</li>
-</ol>
-<p><strong>2. 客户端登陆服务端</strong><br><strong>方式 ：</strong><br>方式一：ftp回车—输入登陆用户回车—输入密码回车<br>方式二：ftp + ip地址回车—user + 用户名 + 密码  回车</p>
-<p><strong>使用：</strong><br><strong>下载（服务器文件下载至客户端）：</strong><br>get + 服务端文件 + 客户端文件<br>recv + 服务端文件 + 客户端文件<br>mget + 服务端文件1 + 服务端文件2 + 服务端文件3  … …</p>
-<p><strong>2.上传：（客户端文件下载至服务端）:</strong><br>push + 客户端文件 + 服务端文件<br>send + 客户端文件+ 服务端文件<br>mpush + 客户端文件1 + 客户端文件2 + 客户端文件3 … …</p>
-<p>其中的上传和下载多个文件时，可以使用prompt切换使用需要我们确认文件是否上下传。</p>
-<p><strong>3.对服务端文件的一些常规管理：</strong><br>pwd , nlist, ls, dir </p>
-<p><strong>4. 重命名文件名：</strong><br>rename + 旧文件名 + 新文件名</p>
-<p><strong>5. 删除文件：</strong><br>delete + 服务端文件</p>
-<p><strong>6. 增加目录：</strong><br>mkdir + 新增目录路径</p>
-<p><strong>7. 删除目录：</strong><br>rmdir + 目录路径</p>
-<p><strong>8.对ftp传输的配置</strong></p>
-<p>查看ftp传输文件以何种方式：<br>type<br>切换传输文件类型<br>bin<br>scaii</p>
-<blockquote>
-<p>切换ftp传输方式：<br>passive<br>（主动模式和被动模式）</p>
-</blockquote>
-<h4 id="其他通信协议"><a href="#其他通信协议" class="headerlink" title="其他通信协议"></a>其他通信协议</h4><p><strong>ping</strong><br>1:是否可以联通<br>2：丢包率<br>3：延时时间<br>对方服务器可以拒绝Ping</p>
-<p><strong>telent协议:</strong><br>和ftp协议一样有服务端和客户端。是远程登陆协议。<br>主要用途：用于判断对方服务（ftp…）是否启用。</p>
-<p><strong>sftp协议：</strong><br>访问服务器与Linux下的命令差不多<br>访问本地需要在命令前加l</p>
-<p>服务器     本地<br>pwd        lpwd<br>ls             lls<br>下载：get<br>上传：put</p>
-<p><strong>ssh协议：</strong><br>登陆：ssh 用户名@ip地址<br>当用户第一次登陆时，系统会自动发放一个证书，下次登陆时，就不会再发送了。<br>还有一种证书是免输入密码登陆证书，可以自己去制作。</p>
-<p>修改ssh协议的端口：</p>
-<p><strong>scp:</strong><br>一个拷贝工具，面向的对象是两台不同的ip地址<br>文件上传到ip：<br>scp  参数    文件名     用户@ip地址：拷贝到ip的那个路径<br>从Ip上取文件：<br>scp  参数  用户@ip地址：服务器的文件     本地文件<br>-r:复制目录</p>
-<p>其中的”:”不要忘记！！！</p>
-<blockquote>
-<p>ssh协议比telent更安全。<br>选择ssh协议是因为它比telent协议好用，而不是更安全这个原因。</p>
-</blockquote>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/03/16/ftp/">展开全文 >></a>
     </p>
     
 
@@ -547,13 +427,8 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <span id="more"></span>
-<h4 id="队列实现-数组"><a href="#队列实现-数组" class="headerlink" title="队列实现(数组)"></a>队列实现(数组)</h4><p><strong>结构示意：</strong><br>初始化：</p>
-<!--more-->
-<p><img src="https://img-blog.csdnimg.cn/20210415101208821.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210415101100599.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2021041510113470.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210415101320272.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2021041523003687.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70"></p>
-<p><strong>具体实现：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 时间：2020/10/15 18:14</span></span><br><span class="line"><span class="comment">* 功能：队列的创建，入队，出队，判断空，判断满。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdbool.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="comment">//结构体</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">queue</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">        <span class="keyword">int</span>* pBase;</span><br><span class="line">        <span class="keyword">int</span> front;</span><br><span class="line">        <span class="keyword">int</span> rear;</span><br><span class="line">&#125;QUEUE,*PQUEUE;</span><br><span class="line"><span class="comment">//函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateQueue</span><span class="params">(PQUEUE pS)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">OutQueue</span><span class="params">(PQUEUE pS, <span class="keyword">int</span>* pVal)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">InQueue</span><span class="params">(PQUEUE pS)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsEmpty</span><span class="params">(PQUEUE pS)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsFull</span><span class="params">(PQUEUE pS)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">traverse</span><span class="params">(PQUEUE pS)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        QUEUE arry;</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">        CreateQueue(&amp;arry);</span><br><span class="line">        InQueue(&amp;arry, <span class="number">1</span>);</span><br><span class="line">        InQueue(&amp;arry, <span class="number">2</span>);</span><br><span class="line">        InQueue(&amp;arry, <span class="number">3</span>);</span><br><span class="line">        traverse(&amp;arry);</span><br><span class="line">        OutQueue(&amp;arry, &amp;a);</span><br><span class="line">        traverse(&amp;arry);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//子函数的实现</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateQueue</span><span class="params">(PQUEUE pS)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        </span><br><span class="line">        pS-&gt;pBase = (<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * <span class="number">10</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="literal">NULL</span> == pS-&gt;pBase)</span><br><span class="line">        &#123;</span><br><span class="line">                printf_s(<span class="string">&quot;分配内存失败！\n&quot;</span>);</span><br><span class="line">                <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">                pS-&gt;front = <span class="number">0</span>;</span><br><span class="line">                pS-&gt;rear = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">OutQueue</span><span class="params">(PQUEUE pS,<span class="keyword">int</span>* pVal)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (IsEmpty(pS))</span><br><span class="line">        &#123;</span><br><span class="line">                printf_s(<span class="string">&quot;无元素出队！\n&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">                *pVal = pS-&gt;pBase[pS-&gt;front];</span><br><span class="line">                pS-&gt;front = (pS-&gt;front + <span class="number">1</span>) % <span class="number">10</span>;</span><br><span class="line">                printf_s(<span class="string">&quot;%d出队成功！\n&quot;</span>, *pVal);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">InQueue</span><span class="params">(PQUEUE pS, <span class="keyword">int</span> Val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (IsFull(pS))</span><br><span class="line">        &#123;</span><br><span class="line">                printf_s(<span class="string">&quot;不可再加元素！\n&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">                pS-&gt;pBase[pS-&gt;rear] = Val;</span><br><span class="line">                pS-&gt;rear = (pS-&gt;rear + <span class="number">1</span>) % <span class="number">10</span>;</span><br><span class="line">                printf_s(<span class="string">&quot;入队成功!\n&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsEmpty</span><span class="params">(PQUEUE pS)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (pS-&gt;front == pS-&gt;rear)</span><br><span class="line">        &#123;</span><br><span class="line">                printf_s(<span class="string">&quot;队列为空！\n&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsFull</span><span class="params">(PQUEUE pS)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ( pS-&gt;front == (pS-&gt;rear + <span class="number">1</span>) )</span><br><span class="line">        &#123;</span><br><span class="line">                printf_s(<span class="string">&quot;队列已满！\n&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">traverse</span><span class="params">(PQUEUE pS)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> q;</span><br><span class="line">        <span class="keyword">if</span> (IsEmpty(pS))</span><br><span class="line">        &#123;</span><br><span class="line">                printf_s(<span class="string">&quot;无遍历元素！\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">                q = pS-&gt;front;</span><br><span class="line">                <span class="keyword">while</span> ( q != pS-&gt;rear)</span><br><span class="line">                &#123;</span><br><span class="line">                        printf_s(<span class="string">&quot;%d\n&quot;</span>, pS-&gt;pBase[q]);</span><br><span class="line">                        q =  (q + <span class="number">1</span>) % <span class="number">10</span>;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 结论：</span></span><br><span class="line"><span class="comment">* -------------------</span></span><br><span class="line"><span class="comment">* 入队，出队均加一</span></span><br><span class="line"><span class="comment">* -------------------</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+    <h4 id="队列实现-数组"><a href="#队列实现-数组" class="headerlink" title="队列实现(数组)"></a>队列实现(数组)</h4>
+    
     
 
     
@@ -580,6 +455,92 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2021/03/16/queue/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ftp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/03/16/ftp/" target="_blank">ftp协议及其他协议</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/03/16/ftp/" class="archive-article-date">
+        <time datetime="2021-03-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h4 id="ftp协议使用与配置："><a href="#ftp协议使用与配置：" class="headerlink" title="ftp协议使用与配置："></a>ftp协议使用与配置：</h4>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/03/16/ftp/">展开全文 >></a>
     </p>
     
 
@@ -638,11 +599,8 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <span id="more"></span>
-<h5 id="结构示意图"><a href="#结构示意图" class="headerlink" title="结构示意图"></a>结构示意图</h5><p><img src="https://img-blog.csdnimg.cn/20210415102718456.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210415103823247.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210415103754726.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>没有栈满的情况，只有栈空的情况。</p>
-<h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 第一次编写</span></span><br><span class="line"><span class="comment">* 创建时间：2020/10/14 20:07</span></span><br><span class="line"><span class="comment">* 功能：动态分配内存，实现栈的形式存储，（创建，判断空，进栈，出栈，清空）</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">//头文件</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdbool.h&gt;</span></span></span><br><span class="line"><span class="comment">//结构体</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">        <span class="keyword">int</span> data;</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>* <span class="title">pNext</span>;</span></span><br><span class="line">&#125;NODE, *PNODE;<span class="comment">//结点</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Stack</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">        PNODE pTop;</span><br><span class="line">        PNODE pBotton;</span><br><span class="line">&#125;STACK, *PSTACK;<span class="comment">//栈顶，栈底</span></span><br><span class="line"><span class="comment">//函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitStack</span><span class="params">(PSTACK pS)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsEmpty</span><span class="params">(PSTACK pS)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Push</span><span class="params">(PSTACK pS, <span class="keyword">int</span> val)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Pop</span><span class="params">(PSTACK pS, <span class="keyword">int</span>* pval)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">(PSTACK pS)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Traverse</span><span class="params">(PSTACK pS)</span></span>;</span><br><span class="line"><span class="comment">//主函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        STACK s;</span><br><span class="line">        InitStack(&amp;s);</span><br><span class="line">        Push(&amp;s, <span class="number">1</span>);</span><br><span class="line">        Push(&amp;s, <span class="number">2</span>);</span><br><span class="line">        <span class="comment">//clear(&amp;s);</span></span><br><span class="line">        Push(&amp;s, <span class="number">3</span>);</span><br><span class="line">        Push(&amp;s, <span class="number">4</span>);</span><br><span class="line">        Push(&amp;s, <span class="number">5</span>);</span><br><span class="line">        <span class="keyword">int</span>* i;</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">        i = &amp;a;</span><br><span class="line">        <span class="comment">//Pop(&amp;s, i);</span></span><br><span class="line">        Traverse(&amp;s);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//子函数的实现</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitStack</span><span class="params">(PSTACK pS)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">         pS-&gt;pBotton = (PNODE)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(NODE) * <span class="number">1</span>);</span><br><span class="line">         <span class="keyword">if</span> (<span class="literal">NULL</span> == pS-&gt;pBotton)</span><br><span class="line">         &#123;</span><br><span class="line">                 printf_s(<span class="string">&quot;内存分配失败！\n&quot;</span>);</span><br><span class="line">                 <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">else</span></span><br><span class="line">         &#123;</span><br><span class="line">                 pS-&gt;pTop = pS-&gt;pBotton;</span><br><span class="line">                 pS-&gt;pTop-&gt;pNext = <span class="literal">NULL</span>;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsEmpty</span><span class="params">(PSTACK pS)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (pS-&gt;pTop == pS-&gt;pBotton)</span><br><span class="line">        &#123;</span><br><span class="line">                printf_s(<span class="string">&quot;栈空！\n&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Push</span><span class="params">(PSTACK pS, <span class="keyword">int</span> val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        PNODE pNew = (PNODE)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(NODE) * <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="literal">NULL</span> == pNew)</span><br><span class="line">        &#123;</span><br><span class="line">                printf_s(<span class="string">&quot;内存分配失败！\n&quot;</span>);</span><br><span class="line">                <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">                pNew-&gt;data = val;</span><br><span class="line">                pNew-&gt;pNext = pS-&gt;pTop;</span><br><span class="line">                pS-&gt;pTop = pNew;</span><br><span class="line">                 printf_s(<span class="string">&quot;入栈成功！\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Pop</span><span class="params">(PSTACK pS, <span class="keyword">int</span> * pval)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (IsEmpty(pS))</span><br><span class="line">        &#123;</span><br><span class="line">                printf_s(<span class="string">&quot;无出栈元素！\n\n\n&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">                PNODE r = pS-&gt;pTop;</span><br><span class="line">                *pval = r-&gt;data;</span><br><span class="line">                pS-&gt;pTop = r-&gt;pNext;</span><br><span class="line">                <span class="built_in">free</span>(r);</span><br><span class="line">                r = <span class="literal">NULL</span>;</span><br><span class="line">                printf_s(<span class="string">&quot;出栈成功！\n&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">(PSTACK pS)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (IsEmpty(pS))</span><br><span class="line">        &#123;</span><br><span class="line">                printf_s(<span class="string">&quot;无清空元素！\n\n\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">                PNODE p = pS-&gt;pTop;</span><br><span class="line">                PNODE q = <span class="literal">NULL</span>;</span><br><span class="line">                <span class="keyword">while</span> (p != pS-&gt;pBotton)</span><br><span class="line">                &#123;</span><br><span class="line">                        q = p-&gt;pNext;</span><br><span class="line">                        <span class="built_in">free</span>(p);</span><br><span class="line">                        p = q;</span><br><span class="line">                        printf_s(<span class="string">&quot;清空成功!\n&quot;</span>);</span><br><span class="line">                        <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Traverse</span><span class="params">(PSTACK pS)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ( IsEmpty(pS) )</span><br><span class="line">        &#123;</span><br><span class="line">                printf_s(<span class="string">&quot;无元素遍历！\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">                printf_s(<span class="string">&quot;遍历元素为：\n&quot;</span>);</span><br><span class="line">                PNODE p = pS-&gt;pTop;</span><br><span class="line">                <span class="keyword">while</span> (p != pS-&gt;pBotton)</span><br><span class="line">                &#123;</span><br><span class="line">                        printf_s(<span class="string">&quot;%d\n&quot;</span>, p-&gt;data);</span><br><span class="line">                        p = p-&gt;pNext;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
+    <h5 id="结构示意图"><a href="#结构示意图" class="headerlink" title="结构示意图"></a>结构示意图</h5>
+    
     
 
     
@@ -727,64 +685,8 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <span id="more"></span>
-<h2 id="网络通信socket"><a href="#网络通信socket" class="headerlink" title="网络通信socket"></a>网络通信socket</h2><p><strong>socket是基于TCP协议的</strong></p>
-<h4 id="1-服务流程"><a href="#1-服务流程" class="headerlink" title="1.服务流程"></a>1.服务流程</h4><p><strong>客户端：</strong></p>
-<ol>
-<li>socket()//创建流式socket。</li>
-<li>connect()//向服务器发起连接请求。</li>
-<li>send()/recv()发送。接受数据。</li>
-<li>close()//关闭socket连接，释放资源。</li>
-</ol>
-<p><strong>服务端：</strong></p>
-<ol>
-<li>socket()//创建流式socket。</li>
-<li>bind()//指定用于通信的ip地址和端口。</li>
-<li>listen()//把socket设置为监听模式。</li>
-<li>accept()//接受客户端的连接。</li>
-<li>recv()/send()//接收、发送数据。</li>
-<li>close() // 关闭socket连接，释放资源。</li>
-</ol>
-<h4 id="2-所涉及到的函数说明"><a href="#2-所涉及到的函数说明" class="headerlink" title="2.所涉及到的函数说明"></a>2.所涉及到的函数说明</h4><p><strong>socket函数：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">创建一个新的socket，就是向系统申请一个socket资源。</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">    domain：协议域，填AF_INET</span></span><br><span class="line"><span class="comment">    type：指定socket类型，填SOCK_STREAM</span></span><br><span class="line"><span class="comment">    protocol：指定协议， 填0</span></span><br><span class="line"><span class="comment">返回值：成功-返回一个socket，失败-返回-1，错误原因存放于errno。（除非资源被耗尽一般不会失败）</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">socket</span><span class="params">(<span class="keyword">int</span> domain, <span class="keyword">int</span> type, <span class="keyword">int</span> protocol)</span></span>;</span><br><span class="line"><span class="comment">//例子：</span></span><br><span class="line">socket(AF_INET, SOCK_STREAM, <span class="number">0</span>));</span><br></pre></td></tr></table></figure>
-<p><strong>gethostbyname函数：</strong><br><strong>gethostbyname只用于客户端。</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">把ip地址或域名转换为hostent 结构体表达的地址。</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">    name：域名或者主机名</span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">如果成功，返回一个hostent结构指针，失败返回NULL。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function">struct hostent *<span class="title">gethostbyname</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *name)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>gethostbyname只是把字符串的ip地址转换为结构体的ip地址，只要地址格式没错，一般不会返回错误。失败时不会设置errno的值</p>
-<p><strong>connect函数：</strong><br><strong>只用于客户端！！！</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">向服务器发起连接请求。将参数sockfd的socket连至参数serv_addr指定的服务端。</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">    serv_addr:本地的socket资源。</span></span><br><span class="line"><span class="comment">    serv_addr:要连接的服务端。</span></span><br><span class="line"><span class="comment">    sddrlen:sockaddr的结构长度。</span></span><br><span class="line"><span class="comment">返回值：成功-返回0， 失败-返回-1，错误原因存放于errno。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">connect</span><span class="params">(<span class="keyword">int</span> sockfd, struct sockaddr * serv_addr, <span class="keyword">int</span> addrlen)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>函数返回失败可能情况：</p>
-<ol>
-<li>服务端地址出错</li>
-<li>端口出错</li>
-<li>服务器没有启动</li>
-</ol>
-<p><strong>recv函数：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">接收对端socket发送过来的数据。不论是客户端还是服务端，应用程序都用recv函数接收来自TCP连接的另一端发送过来数据。</span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">    socket:为已建立好连接的socket。</span></span><br><span class="line"><span class="comment">    buf:用于接收数据的内存地址，类型任意。</span></span><br><span class="line"><span class="comment">    len:接收数据的长度，不可超过buf大小。</span></span><br><span class="line"><span class="comment">    flags:暂且填0。</span></span><br><span class="line"><span class="comment">返回值：  </span></span><br><span class="line"><span class="comment">        出错时返回-1,如果socket被对端关闭，返回值为0。</span></span><br><span class="line"><span class="comment">        如果recv函数返回的错误（&lt;=0），表示通信通道已不可用。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">ssize_t</span> <span class="title">recv</span><span class="params">(<span class="keyword">int</span> sockfd, <span class="keyword">void</span> *buf, <span class="keyword">size_t</span> len, <span class="keyword">int</span> flags)</span></span>;</span><br></pre></td></tr></table></figure>
-<p><strong>send函数：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">send函数用于把数据通过socket发送给对端。不论是客户端还是服务端，应用程序都用send函数来向TCP连接的另一端发送数据。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">    sockfd：为已建立好连接的socket。</span></span><br><span class="line"><span class="comment">    buf：为需要发送的数据的内存地址</span></span><br><span class="line"><span class="comment">    len：需要发送的数据的长度</span></span><br><span class="line"><span class="comment">    flags：填0</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">    成功-返回已发送的字符数</span></span><br><span class="line"><span class="comment">    出错-返回-1，错误信息errno被标记</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">ssize_t</span> <span class="title">send</span><span class="params">(<span class="keyword">int</span> sockfd, <span class="keyword">const</span> <span class="keyword">void</span> *buf, <span class="keyword">size_t</span> len, <span class="keyword">int</span> flags)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>注意，就算是网络断开，或socket已被对端关闭，send函数不会立即报错，要过几秒才会报错。如果send函数返回的错误（&lt;=0），表示通信链路已不可用。</p>
-<p><strong>bind函数：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">服务端把用于通信的地址和端口绑定到socket上。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">    sockfd：需要绑定的socket。</span></span><br><span class="line"><span class="comment">    addr：存放了服务端用于通信的地址和端口。</span></span><br><span class="line"><span class="comment">    addrlen：addr结构体的大小。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">    成功-0</span></span><br><span class="line"><span class="comment">    失败-  -1，错误原因存于errno 中。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bind</span><span class="params">(<span class="keyword">int</span> sockfd, <span class="keyword">const</span> struct sockaddr *addr,<span class="keyword">socklen_t</span> addrlen)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>错误原因：<br>如果绑定的地址错误，或端口已被占用，bind函数一定会报错，否则一般不会返回错误。</p>
-<p><strong>listen函数：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">listen函数把主动连接socket变为被动连接的socket，使得这个socket可以接受其它socket的连接请求，从而成为一个服务端的socket。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">    sockfd：是已经被bind过的socket。</span></span><br><span class="line"><span class="comment">    backlog：填5、10都行，一般不超过30。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">    成功-0</span></span><br><span class="line"><span class="comment">    失败-  -1，</span></span><br><span class="line"><span class="comment">    错误原因存于errno 中。listen函数一般不会返回错误。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">listen</span><span class="params">(<span class="keyword">int</span> sockfd, <span class="keyword">int</span> backlog)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>当调用listen之后，服务端的socket就可以调用accept来接受客户端的连接请求。</p>
-<p><strong>accept函数：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能：</span></span><br><span class="line"><span class="comment">服务端接受客户端的连接。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">参数：</span></span><br><span class="line"><span class="comment">    sockfd:是已经被listen过的socket。</span></span><br><span class="line"><span class="comment">    addr:用于存放客户端的地址信息，用sockaddr结构体表达，如果不需要客户端的地址，可以填0。</span></span><br><span class="line"><span class="comment">    addrlen:用于存放addr参数的长度，如果addr为0，addrlen也填0。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">返回值：</span></span><br><span class="line"><span class="comment">    成功-0</span></span><br><span class="line"><span class="comment">    失败-  -1,</span></span><br><span class="line"><span class="comment">    错误原因存于errno 中。</span></span><br><span class="line"><span class="comment">    accept在等待的过程中，如果被中断或其它的原因，函数返回-1，表示失败，</span></span><br><span class="line"><span class="comment">    如果失败，可以重新accept。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">accept</span><span class="params">(<span class="keyword">int</span> sockfd,struct sockaddr *addr,<span class="keyword">socklen_t</span> *addrlen)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>accept函数等待客户端的连接，如果没有客户端连上来，它就一直等待，这种方式称之为阻塞。accept等待到客户端的连接后，创建一个新的socket，函数返回值就是这个新的socket，服务端使用这个新的socket和客户端进行报文的收发。</p>
-<p><strong>close函数：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">close</span><span class="params">(<span class="keyword">int</span> sockfd)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p><strong>数据结构：</strong></p>
-<p><strong>客户端程序指定服务端的Ip地址：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 向服务器发起连接请求。</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">hostent</span>* <span class="title">h</span>;</span></span><br><span class="line"><span class="keyword">if</span> ( (h = gethostbyname(“<span class="number">192.168</span><span class="number">.43</span><span class="number">.168</span>”)) == <span class="number">0</span> )   <span class="comment">// 指定服务端的ip地址。</span></span><br><span class="line">&#123; </span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;gethostbyname failed.\n&quot;</span>); </span><br><span class="line">  close(sockfd); </span><br><span class="line">  <span class="keyword">return</span> <span class="number">-1</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">servaddr</span>;</span></span><br><span class="line"><span class="built_in">memset</span>(&amp;servaddr,<span class="number">0</span>,<span class="keyword">sizeof</span>(servaddr));</span><br><span class="line">servaddr.sin_family = AF_INET;</span><br><span class="line">servaddr.sin_port = htons(<span class="number">5000</span>)); <span class="comment">// 指定服务端的通信端口。</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>服务端程序绑定地址：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 把服务端用于通信的地址和端口绑定到socket上。</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">servaddr</span>;</span>    <span class="comment">// 服务端地址信息的数据结构。</span></span><br><span class="line"><span class="built_in">memset</span>(&amp;servaddr,<span class="number">0</span>,<span class="keyword">sizeof</span>(servaddr));</span><br><span class="line">servaddr.sin_family = AF_INET;  <span class="comment">// 协议族，在socket编程中只能是AF_INET。</span></span><br><span class="line">servaddr.sin_addr.s_addr = htonl(INADDR_ANY);          <span class="comment">// 任意ip地址。</span></span><br><span class="line"><span class="comment">//servaddr.sin_addr.s_addr = inet_addr(&quot;192.168.190.134&quot;); // 指定ip地址。</span></span><br><span class="line">servaddr.sin_port = htons(atoi(argv[<span class="number">1</span>]));  <span class="comment">// 指定通信端口。</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>具体实现：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//进程线程写完再写，在说吧。</span></span><br></pre></td></tr></table></figure>
-
+    <h2 id="网络通信socket"><a href="#网络通信socket" class="headerlink" title="网络通信socket"></a>网络通信socket</h2>
+    
     
 
     
@@ -869,101 +771,8 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <span id="more"></span>
-<h2 id="一，指针"><a href="#一，指针" class="headerlink" title="一，指针"></a>一，指针</h2><h4 id="1-1，清楚四个关于指针的概念"><a href="#1-1，清楚四个关于指针的概念" class="headerlink" title="1.1，清楚四个关于指针的概念"></a>1.1，清楚四个关于指针的概念</h4><ol>
-<li><strong>指针的类型</strong></li>
-<li><strong>指针所指向的类型</strong></li>
-<li><strong>指针的值或者指针所指向的内存区</strong></li>
-<li><strong>指针本身所占据的内存区</strong></li>
-</ol>
-<blockquote>
-<p><strong>指针的类型</strong>:去掉指针名字即可。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *ptr; <span class="comment">//指针类型为int *</span></span><br><span class="line"><span class="keyword">char</span> *ptr;<span class="comment">//指针类型为char *</span></span><br><span class="line"><span class="keyword">int</span> * *ptr;<span class="comment">//指针类型为int*</span></span><br><span class="line"><span class="keyword">int</span> (*ptr)[<span class="number">3</span>];<span class="comment">//指针类型为int (* )[3]</span></span><br><span class="line"><span class="keyword">int</span> *(*ptr)[<span class="number">4</span>];<span class="comment">//指针类型为int *(* )[4]</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>指针所指向的类型</strong>：去掉*和指针名字即可。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *ptr; <span class="comment">//指针所指向的类型为int </span></span><br><span class="line"><span class="keyword">char</span> *ptr;<span class="comment">//指针所指向的类型为char </span></span><br><span class="line"><span class="keyword">int</span> * *ptr;<span class="comment">//指针所指向的类型为int</span></span><br><span class="line"><span class="keyword">int</span> (*ptr)[<span class="number">3</span>];<span class="comment">//指针所指向的类型为int ( )[3]</span></span><br><span class="line"><span class="keyword">int</span> *(*ptr)[<span class="number">4</span>];<span class="comment">//指针所指向的类型为int *(  )[4]</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>指针的值或者指针所指向的内存区</strong>:指针本身所存储的数值，这个值被当作一个地址（首地址）。<br>例如: 定义了一个10个整型的数组变量， <code>int arr[10]=&#123;0,&#125;;</code>,  <code>int *p = arr</code>,那么p就是指向这个数组的首地址arr[0]。</p>
-</blockquote>
-<blockquote>
-<p><strong>指针本身所占据的内存区</strong>:字面意思</p>
-</blockquote>
-<h4 id="1-2，指针的大小"><a href="#1-2，指针的大小" class="headerlink" title="1.2，指针的大小"></a>1.2，指针的大小</h4><p>想呀，指针就是区别存储的地址的，所以指针的大小就是这台计算机的内存地址数目<br>一个32位的计算机，可以存放2^32个地址， 即指针的大小位4个字节。</p>
-<h4 id="1-3，熟悉-amp-和-两个符号"><a href="#1-3，熟悉-amp-和-两个符号" class="headerlink" title="1.3，熟悉&amp; 和 * 两个符号"></a>1.3，熟悉&amp; 和 * 两个符号</h4><p>&amp;:       取地址符，获取变量的地址<br>*：      1，乘法运算符 2， 间接运算符，可以解析到指针所指向的变量的值</p>
-<blockquote>
-<p>举例：</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> *ptr = &amp;a;<span class="comment">//ptr指向a的地址</span></span><br><span class="line">*ptr = a;<span class="comment">//解析ptr所指向的内存空间内容</span></span><br></pre></td></tr></table></figure>
-<p>注意：指针必须要对它赋值，才可以使用，不然这个指针就是一个野指针，使用是非常危险的。</p>
-<h4 id="1-4，指针和数组"><a href="#1-4，指针和数组" class="headerlink" title="1.4，指针和数组"></a>1.4，指针和数组</h4><p><strong>切记数组的首地址即数组名地址不可修改！！！</strong></p>
-<blockquote>
-<p>举例：</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">10</span>] = &#123;<span class="number">0</span>,&#125;;</span><br><span class="line"><span class="keyword">int</span> *ptr = arr;<span class="comment">//arr数组名就是数组的首地址，即ptr == arr == &amp;arr[0] </span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, ptr++);<span class="comment">//对数组指针的加减法，就是以指针所指向类型为单位进行加减法</span></span><br><span class="line">                             <span class="comment">//起先ptr指向arr, ptr++后，指向arr+1这个变量的首地址</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-5，指针和结构体"><a href="#1-5，指针和结构体" class="headerlink" title="1.5，指针和结构体"></a>1.5，指针和结构体</h4><blockquote>
-<p>举例：</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">st_student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">   <span class="keyword">char</span> name[<span class="number">10</span>];</span><br><span class="line">   <span class="keyword">int</span> age;</span><br><span class="line">   <span class="keyword">char</span> <span class="class"><span class="keyword">class</span>[30];</span></span><br><span class="line">&#125;STU, *PSTU;   </span><br><span class="line"><span class="comment">//PSTU =  struct st_student*  </span></span><br><span class="line"></span><br><span class="line"><span class="comment">//表示方法一：</span></span><br><span class="line">PSTU  pstu;</span><br><span class="line">pstu-&gt;name = <span class="string">&quot;dd&quot;</span>;    </span><br><span class="line">pstu-&gt;age = <span class="number">14</span>;    </span><br><span class="line">pstu-&gt;<span class="class"><span class="keyword">class</span> =</span> <span class="string">&quot;电信师范2班&quot;</span>；    </span><br><span class="line"></span><br><span class="line"><span class="comment">//表示方法二：</span></span><br><span class="line">STU stu;</span><br><span class="line">stu.name = <span class="string">&quot;dd&quot;</span>;</span><br><span class="line">stu.age = <span class="string">&quot;14&quot;</span>;</span><br><span class="line">stu.class = <span class="string">&quot;电信师范2班&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//表示方法三：</span></span><br><span class="line">STU stu;</span><br><span class="line">(&amp;stu)-&gt;name = <span class="string">&quot;dd&quot;</span>;</span><br><span class="line">(&amp;stu)-&gt;age = <span class="number">14</span>;</span><br><span class="line">(&amp;stu)-&gt;<span class="class"><span class="keyword">class</span> =</span> <span class="string">&quot;电信师范2班&quot;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>注意存放结构体对象的各个成员时，在某种编译环境下，需要字对齐，产生空隙。<br>使用 <code>#pragma pack(1)</code>可以使其中的空隙消除。</p>
-<h4 id="1-6，指针和函数"><a href="#1-6，指针和函数" class="headerlink" title="1.6，指针和函数"></a>1.6，指针和函数</h4><p>函数指针：</p>
-<blockquote>
-<p>举例：</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*pFun)</span><span class="params">(<span class="keyword">int</span>)</span></span>;<span class="comment">//声明了一个返回值为void, 函数参数为int的函数指针。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun1</span><span class="params">(<span class="keyword">int</span> a)</span></span>;</span><br><span class="line">pFun = fun1;</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-7，指针和const"><a href="#1-7，指针和const" class="headerlink" title="1.7，指针和const"></a>1.7，指针和const</h4><p>看const其后修饰的是什么就限制谁；</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//这两个的功能是一样的。</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p = &amp;i;<span class="comment">//const修饰*i，即变量，就是限制变量不可以更改，指针可以转而指向其他。</span></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> *p = &amp;i;<span class="comment">//与上句功能一致。</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> p = &amp;i; <span class="comment">//const 修饰i, 即指针，就是限制指针不可以更改，指针所指向的变量的值可以更改。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> * <span class="keyword">const</span> p = &amp;i; <span class="comment">//结合以上两种情况，即不可以更改指针，也不可以更改指针所指向的变量值。</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="1-8-指针和引用"><a href="#1-8-指针和引用" class="headerlink" title="1.8 指针和引用"></a>1.8 指针和引用</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> &amp;a)</span></span>;</span><br><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> &amp;b = a;<span class="comment">//相当于给a起一个别名。</span></span><br><span class="line">fun(b);</span><br></pre></td></tr></table></figure>
-<ol>
-<li>引用在被创建的时候就要初始化，而指针不需要。</li>
-<li>引用不可为NULL，而指针可以。</li>
-<li>引用被初始化后，就不可以更改了。</li>
-</ol>
-<h4 id="1-9，指针的灵活性"><a href="#1-9，指针的灵活性" class="headerlink" title="1.9，指针的灵活性"></a>1.9，指针的灵活性</h4><p>你想把一个数据当作一个地址的数值就可以当作一个地址的数值，<br>你也可以把指针的值即地址当作一个数据。</p>
-<p>只要符合语法规则就可以进行转换。</p>
-<p>当然，我们还可以使用（变量类型 *）强制转化指针的类型。</p>
-<blockquote>
-<p>例如:</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">char</span> *ptr = (<span class="keyword">char</span> *) &amp;i;</span><br><span class="line"><span class="comment">//注意数据丢失问题。</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="1-9，几道关于指针的题目"><a href="#1-9，几道关于指针的题目" class="headerlink" title="1.9，几道关于指针的题目"></a>1.9，几道关于指针的题目</h4><ol start="0">
-<li>先熟悉下定义</li>
-</ol>
-<p>-定义有10个整型的数组。<br>-定义一个包含10个整型指针的数组。<br>-定义一个指向有10个整型数数组的指针。<br>-一个指向函数的指针，该函数有一个int型参数，且无返回类型。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> *arr[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> (*arr)[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*pFun)</span><span class="params">(<span class="keyword">int</span> val)</span></span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol>
-<li>你确定你可以做到更改其地址吗？<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_malloc</span><span class="params">(<span class="keyword">char</span> *p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   p = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">100</span>);</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">char</span> *str = <span class="literal">NULL</span>;</span><br><span class="line">   get_malloc(str);</span><br><span class="line">   <span class="built_in">memset</span>(&amp;str, <span class="number">0</span>, <span class="keyword">sizeof</span>(str));</span><br><span class="line">   <span class="built_in">strcpy</span>(str, <span class="string">&quot;hello world&quot;</span>);</span><br><span class="line">   <span class="built_in">printf</span>(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>摘要：毛病出在函数 get_malloc中。编译器总是要为函数的每个参数制作临时副本，指针 参数 p 的副本是 _p，编译器使 _p = p 。如果函数体内的程序修改了_p 的内容，就导致 参数 p 的内容作相应的修改。这就是指针可以用作输出参数的原因。在本例中，_p 申请 了新的内存，只是把_p 所指的内存地址改变了，但是 p 丝毫未变。所以函数 get_malloc 并不能输出任何东西。事实上，每执行一次 get_malloc 就会泄露一块内存，因为没有用 free 释放内存。</p>
-</blockquote>
-</li>
-</ol>
-<p>这个程序可以这样改（这个太麻烦了，但也行的通）：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">get_malloc</span><span class="params">(<span class="keyword">char</span> * pstr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  pstr = (<span class="keyword">char</span>*) <span class="built_in">malloc</span>(<span class="number">100</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">  <span class="keyword">if</span> (<span class="literal">NULL</span> == pstr) <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;pstr == %#x\n&quot;</span>, pstr);</span><br><span class="line">  <span class="keyword">return</span> (<span class="keyword">long</span>)pstr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span>* pstr = <span class="literal">NULL</span>;</span><br><span class="line">  pstr = (<span class="keyword">char</span>*)get_malloc(pstr);</span><br><span class="line">  <span class="built_in">memset</span>(&amp;str, <span class="number">0</span>, <span class="keyword">sizeof</span>(str));</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;pstr=%#x\n&quot;</span>, pstr);</span><br><span class="line">  <span class="built_in">strcpy</span>(pstr, <span class="string">&quot;zwwzwwzwwzwwzwwzwwzwwzwwzwwzww&quot;</span>);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, pstr);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样才简洁：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_malloc</span><span class="params">(<span class="keyword">char</span> **p, <span class="keyword">int</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  *p = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(num);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> *str = <span class="literal">NULL</span>;</span><br><span class="line">  get_malloc(&amp;str,<span class="number">100</span>);</span><br><span class="line">  <span class="built_in">memset</span>(&amp;str, <span class="number">0</span>, <span class="keyword">sizeof</span>(str));</span><br><span class="line">  <span class="built_in">strcpy</span>(str, <span class="string">&quot;zwwzwwzwwzwwzww&quot;</span>);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>, str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><p>你确定函数返回后，其值还存在吗？</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">get_malloc</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> p[] = <span class="string">&quot;zwwzwwzww&quot;</span>;</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> *str =<span class="literal">NULL</span>;</span><br><span class="line">  str = get_malloc();</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>, str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>调用函数，用完及释放。</p>
-</li>
-<li><p>千万不要使用野指针！</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span>* str = (<span class="keyword">char</span>*) <span class="built_in">malloc</span>(<span class="number">30</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">  <span class="keyword">if</span> (str == <span class="literal">NULL</span>) <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  <span class="built_in">strcpy</span>(str, <span class="string">&quot;zwwzwwzww&quot;</span>);</span><br><span class="line">  <span class="built_in">free</span>(str);</span><br><span class="line">  <span class="keyword">if</span> (str != <span class="literal">NULL</span>)</span><br><span class="line">    <span class="built_in">strcpy</span>(str, <span class="string">&quot;zmmzmmzmm&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>二级指针</p>
-</li>
-</ol>
-<p><strong>查找字符串中的字符是否存在，并将查找成功的字符地址返回，失败返回0。</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注意修改地址，我们要传入地址的地址。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">**功能：在strsour字符串中，查找serach，并将其查找到的地址返回到*pstr中。</span></span><br><span class="line"><span class="comment">**返回值：成功返回-true, 失败返回-false。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">serachch</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* strsour, <span class="keyword">char</span> serach, <span class="keyword">char</span> ** ppstr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> *pstrsour = (<span class="keyword">char</span>*) strsour;</span><br><span class="line">  <span class="keyword">while</span> (pstrsour &amp;&amp; (*++pstrsour == serach));</span><br><span class="line">  <span class="keyword">if</span> (*pstrsour != <span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      *ppstr = pstrsour;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> arr[<span class="number">10</span>] = <span class="string">&quot;zwwhappyl&quot;</span>;</span><br><span class="line">  <span class="keyword">char</span> *ptr = arr;</span><br><span class="line">  <span class="keyword">if</span> (serachch(arr, <span class="string">&#x27;h&#x27;</span>, &amp;ptr))</span><br><span class="line">  &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;查找成功！%c地址为%#x\n&quot;</span>, <span class="string">&#x27;h&#x27;</span>, &amp;ptr);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;查找失败！\n&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+    <h2 id="一，指针"><a href="#一，指针" class="headerlink" title="一，指针"></a>一，指针</h2>
+    
     
 
     
@@ -1148,19 +957,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
               </li>
             
             <div class="clearfix"></div>
