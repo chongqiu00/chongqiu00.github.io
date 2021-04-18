@@ -6,22 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/chongqiu00/chongqiu00.github.io.git">
-  <title>指针 | chongqiu00的破壳</title>
+  <title>进程管理 | chongqiu00的破壳</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="指针的详细解释">
+  <meta name="description" content="笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="指针">
-<meta property="og:url" content="https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/12/zhizheng/index.html">
+<meta property="og:title" content="进程管理">
+<meta property="og:url" content="https://github.com/chongqiu00/chongqiu00.github.io.git/2021/04/18/OS_process/index.html">
 <meta property="og:site_name" content="chongqiu00的破壳">
-<meta property="og:description" content="指针的详细解释">
+<meta property="og:description" content="笔记">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-03-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-04-16T14:53:20.947Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210418211639463.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210418211559815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210418211503453.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210418211437519.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210418211403291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210418211322463.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-04-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-04-18T13:20:44.207Z">
 <meta property="article:author" content="chongqiu00">
-<meta property="article:tag" content="C&#x2F;C++">
+<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210418211639463.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="chongqiu00的破壳" type="application/atom+xml">
   
@@ -78,11 +85,17 @@
 			
 				<li><a href="/tags" target="_blank">主页</a></li>
 			
-				<li><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" target="_blank">计算机网络</a></li>
+				<li><a href="/tags/C/C++/" target="_blank">C/C++</a></li>
 			
 				<li><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" target="_blank">数据结构</a></li>
 			
+				<li><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" target="_blank">计算机网络</a></li>
+			
+				<li><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" target="_blank">操作系统</a></li>
+			
 				<li><a href="/tags/Linux/" target="_blank">Linux</a></li>
+			
+				<li><a href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" target="_blank">网络编程</a></li>
 			
 			</ul>
 		</nav>
@@ -163,6 +176,12 @@
 			
 				
 			
+				
+			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -200,13 +219,19 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/tags">主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/C/C++/">C/C++</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/Linux/">Linux</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/tags/Linux/">Linux</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">网络编程</a></li>
 		        
 				</ul>
 			</nav>
@@ -222,14 +247,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-zhizheng" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-OS_process" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      指针
+      进程管理
     </h1>
   
 
@@ -241,8 +266,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2021/03/12/zhizheng/" class="archive-article-date">
-        <time datetime="2021-03-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-12</time>
+<a href="/2021/04/18/OS_process/" class="archive-article-date">
+        <time datetime="2021-04-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-18</time>
 </a>
 
   
@@ -255,7 +280,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.9k字</span>
+      <span class="post-count">5.8k字</span>
     </span>
   </span>
 
@@ -264,7 +289,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">7分</span>
+      <span class="post-count">21分</span>
     </span>
   </span>
 </div>
@@ -275,100 +300,189 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="一，指针"><a href="#一，指针" class="headerlink" title="一，指针"></a>一，指针</h2><span id="more"></span>
-<h4 id="1-1，清楚四个关于指针的概念"><a href="#1-1，清楚四个关于指针的概念" class="headerlink" title="1.1，清楚四个关于指针的概念"></a>1.1，清楚四个关于指针的概念</h4><ol>
-<li><strong>指针的类型</strong></li>
-<li><strong>指针所指向的类型</strong></li>
-<li><strong>指针的值或者指针所指向的内存区</strong></li>
-<li><strong>指针本身所占据的内存区</strong></li>
-</ol>
+    <h3 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h3><h4 id="（一）进程与线程"><a href="#（一）进程与线程" class="headerlink" title="（一）进程与线程"></a>（一）进程与线程</h4><p><strong>进程：</strong><br><u>1，概念</u><br>多道程序是多个程序并发执行，不好区别与管理，由此引入了进程。就是为了描述和控制程序的并发执行，实现OS的并发和共享。<br>进程是动态的，进程实体（进程映像）是静态的，程序是静态的。</p>
+<p><u>2，组成</u><br>进程由 PCB（进程控制块）， 代码段， 数据段三部分组成，其中的PCB是进程存在的唯一标志。</p>
+<p><u>3，特征</u><br>动态性，并发性，独立性，异步性， 结构性。其中动态性是最基本特征。</p>
+<p><u>4，进程控制</u><br><em>就是改变PCB中的描述信息和一系列的相关数据。</em><br>是<strong>运行，就绪，阻塞，唤醒，创建，结束</strong>之间的转换</p>
+<p><u>5，进程通信</u><br><em>线程概念与多线程模型</em><br>     共享存储：<br>              1，低级方式：结构体存储<br>              2，高级方式：内存存储<br>     消息传递：<br>              1，直接通信方式<br>              2，间接通信方式：类似邮箱<br>     管道通信：<br>              半双工通信， 一个管道必须读完才可以写，写完才可以读。<br>              管道通信可以理解为共享存储的优化和发展。</p>
 <blockquote>
-<p><strong>指针的类型</strong>:去掉指针名字即可。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *ptr; <span class="comment">//指针类型为int *</span></span><br><span class="line"><span class="keyword">char</span> *ptr;<span class="comment">//指针类型为char *</span></span><br><span class="line"><span class="keyword">int</span> * *ptr;<span class="comment">//指针类型为int*</span></span><br><span class="line"><span class="keyword">int</span> (*ptr)[<span class="number">3</span>];<span class="comment">//指针类型为int (* )[3]</span></span><br><span class="line"><span class="keyword">int</span> *(*ptr)[<span class="number">4</span>];<span class="comment">//指针类型为int *(* )[4]</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>指针所指向的类型</strong>：去掉*和指针名字即可。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *ptr; <span class="comment">//指针所指向的类型为int </span></span><br><span class="line"><span class="keyword">char</span> *ptr;<span class="comment">//指针所指向的类型为char </span></span><br><span class="line"><span class="keyword">int</span> * *ptr;<span class="comment">//指针所指向的类型为int</span></span><br><span class="line"><span class="keyword">int</span> (*ptr)[<span class="number">3</span>];<span class="comment">//指针所指向的类型为int ( )[3]</span></span><br><span class="line"><span class="keyword">int</span> *(*ptr)[<span class="number">4</span>];<span class="comment">//指针所指向的类型为int *(  )[4]</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>指针的值或者指针所指向的内存区</strong>:指针本身所存储的数值，这个值被当作一个地址（首地址）。<br>例如: 定义了一个10个整型的数组变量， <code>int arr[10]=&#123;0,&#125;;</code>,  <code>int *p = arr</code>,那么p就是指向这个数组的首地址arr[0]。</p>
-</blockquote>
-<blockquote>
-<p><strong>指针本身所占据的内存区</strong>:字面意思</p>
-</blockquote>
-<h4 id="1-2，指针的大小"><a href="#1-2，指针的大小" class="headerlink" title="1.2，指针的大小"></a>1.2，指针的大小</h4><p>想呀，指针就是区别存储的地址的，所以指针的大小就是这台计算机的内存地址数目<br>一个32位的计算机，可以存放2^32个地址， 即指针的大小位4个字节。</p>
-<h4 id="1-3，熟悉-amp-和-两个符号"><a href="#1-3，熟悉-amp-和-两个符号" class="headerlink" title="1.3，熟悉&amp; 和 * 两个符号"></a>1.3，熟悉&amp; 和 * 两个符号</h4><p>&amp;:       取地址符，获取变量的地址<br>*：      1，乘法运算符 2， 间接运算符，可以解析到指针所指向的变量的值</p>
-<blockquote>
-<p>举例：</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> *ptr = &amp;a;<span class="comment">//ptr指向a的地址</span></span><br><span class="line">*ptr = a;<span class="comment">//解析ptr所指向的内存空间内容</span></span><br></pre></td></tr></table></figure>
-<p>注意：指针必须要对它赋值，才可以使用，不然这个指针就是一个野指针，使用是非常危险的。</p>
-<h4 id="1-4，指针和数组"><a href="#1-4，指针和数组" class="headerlink" title="1.4，指针和数组"></a>1.4，指针和数组</h4><p><strong>切记数组的首地址即数组名地址不可修改！！！</strong></p>
-<blockquote>
-<p>举例：</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">10</span>] = &#123;<span class="number">0</span>,&#125;;</span><br><span class="line"><span class="keyword">int</span> *ptr = arr;<span class="comment">//arr数组名就是数组的首地址，即ptr == arr == &amp;arr[0] </span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, ptr++);<span class="comment">//对数组指针的加减法，就是以指针所指向类型为单位进行加减法</span></span><br><span class="line">                             <span class="comment">//起先ptr指向arr, ptr++后，指向arr+1这个变量的首地址</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-5，指针和结构体"><a href="#1-5，指针和结构体" class="headerlink" title="1.5，指针和结构体"></a>1.5，指针和结构体</h4><blockquote>
-<p>举例：</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">st_student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">   <span class="keyword">char</span> name[<span class="number">10</span>];</span><br><span class="line">   <span class="keyword">int</span> age;</span><br><span class="line">   <span class="keyword">char</span> <span class="class"><span class="keyword">class</span>[30];</span></span><br><span class="line">&#125;STU, *PSTU;   </span><br><span class="line"><span class="comment">//PSTU =  struct st_student*  </span></span><br><span class="line"></span><br><span class="line"><span class="comment">//表示方法一：</span></span><br><span class="line">PSTU  pstu;</span><br><span class="line">pstu-&gt;name = <span class="string">&quot;dd&quot;</span>;    </span><br><span class="line">pstu-&gt;age = <span class="number">14</span>;    </span><br><span class="line">pstu-&gt;<span class="class"><span class="keyword">class</span> =</span> <span class="string">&quot;电信师范2班&quot;</span>；    </span><br><span class="line"></span><br><span class="line"><span class="comment">//表示方法二：</span></span><br><span class="line">STU stu;</span><br><span class="line">stu.name = <span class="string">&quot;dd&quot;</span>;</span><br><span class="line">stu.age = <span class="string">&quot;14&quot;</span>;</span><br><span class="line">stu.class = <span class="string">&quot;电信师范2班&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//表示方法三：</span></span><br><span class="line">STU stu;</span><br><span class="line">(&amp;stu)-&gt;name = <span class="string">&quot;dd&quot;</span>;</span><br><span class="line">(&amp;stu)-&gt;age = <span class="number">14</span>;</span><br><span class="line">(&amp;stu)-&gt;<span class="class"><span class="keyword">class</span> =</span> <span class="string">&quot;电信师范2班&quot;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>注意存放结构体对象的各个成员时，在某种编译环境下，需要字对齐，产生空隙。<br>使用 <code>#pragma pack(1)</code>可以使其中的空隙消除。</p>
-<h4 id="1-6，指针和函数"><a href="#1-6，指针和函数" class="headerlink" title="1.6，指针和函数"></a>1.6，指针和函数</h4><p>函数指针：</p>
-<blockquote>
-<p>举例：</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*pFun)</span><span class="params">(<span class="keyword">int</span>)</span></span>;<span class="comment">//声明了一个返回值为void, 函数参数为int的函数指针。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun1</span><span class="params">(<span class="keyword">int</span> a)</span></span>;</span><br><span class="line">pFun = fun1;</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-7，指针和const"><a href="#1-7，指针和const" class="headerlink" title="1.7，指针和const"></a>1.7，指针和const</h4><p>看const其后修饰的是什么就限制谁；</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//这两个的功能是一样的。</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p = &amp;i;<span class="comment">//const修饰*i，即变量，就是限制变量不可以更改，指针可以转而指向其他。</span></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> *p = &amp;i;<span class="comment">//与上句功能一致。</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> p = &amp;i; <span class="comment">//const 修饰i, 即指针，就是限制指针不可以更改，指针所指向的变量的值可以更改。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> * <span class="keyword">const</span> p = &amp;i; <span class="comment">//结合以上两种情况，即不可以更改指针，也不可以更改指针所指向的变量值。</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="1-8-指针和引用"><a href="#1-8-指针和引用" class="headerlink" title="1.8 指针和引用"></a>1.8 指针和引用</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> &amp;a)</span></span>;</span><br><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> &amp;b = a;<span class="comment">//相当于给a起一个别名。</span></span><br><span class="line">fun(b);</span><br></pre></td></tr></table></figure>
+<p><strong>在Linux下，有6中进程通信方式：</strong>（见C/C++）</p>
 <ol>
-<li>引用在被创建的时候就要初始化，而指针不需要。</li>
-<li>引用不可为NULL，而指针可以。</li>
-<li>引用被初始化后，就不可以更改了。</li>
+<li>管道（无名管道pipe，有名管道named pipe）</li>
+<li>消息队列(message)</li>
+<li>信号(signal):<em>信号用于通知其它进程有某种事件发生</em></li>
+<li>共享内存(shared memory):<em>多个进程可以访问同一块内存空间。</em></li>
+<li>信号量（semaphore):<em>也叫信号灯，用于进程之间对共享资源进行加锁。</em></li>
+<li>套接字(socket):<em>可用于不同计算机之间的进程间通信。</em></li>
 </ol>
-<h4 id="1-9，指针的灵活性"><a href="#1-9，指针的灵活性" class="headerlink" title="1.9，指针的灵活性"></a>1.9，指针的灵活性</h4><p>你想把一个数据当作一个地址的数值就可以当作一个地址的数值，<br>你也可以把指针的值即地址当作一个数据。</p>
-<p>只要符合语法规则就可以进行转换。</p>
-<p>当然，我们还可以使用（变量类型 *）强制转化指针的类型。</p>
-<blockquote>
-<p>例如:</p>
 </blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">char</span> *ptr = (<span class="keyword">char</span> *) &amp;i;</span><br><span class="line"><span class="comment">//注意数据丢失问题。</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="1-9，几道关于指针的题目"><a href="#1-9，几道关于指针的题目" class="headerlink" title="1.9，几道关于指针的题目"></a>1.9，几道关于指针的题目</h4><ol start="0">
-<li>先熟悉下定义</li>
-</ol>
-<p>-定义有10个整型的数组。<br>-定义一个包含10个整型指针的数组。<br>-定义一个指向有10个整型数数组的指针。<br>-一个指向函数的指针，该函数有一个int型参数，且无返回类型。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> *arr[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> (*arr)[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*pFun)</span><span class="params">(<span class="keyword">int</span> val)</span></span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol>
-<li>你确定你可以做到更改其地址吗？<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_malloc</span><span class="params">(<span class="keyword">char</span> *p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   p = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">100</span>);</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">char</span> *str = <span class="literal">NULL</span>;</span><br><span class="line">   get_malloc(str);</span><br><span class="line">   <span class="built_in">memset</span>(&amp;str, <span class="number">0</span>, <span class="keyword">sizeof</span>(str));</span><br><span class="line">   <span class="built_in">strcpy</span>(str, <span class="string">&quot;hello world&quot;</span>);</span><br><span class="line">   <span class="built_in">printf</span>(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>线程</strong>：线程可以独立完成。<br><u>1，基本概念</u><br>为了减小程序在并发执行时所付出的时空开销，提高OS的并发性。</p>
+<p><u>2，进程与线程的比较</u><br>    1，调度：进程时系统资源的基本单位，线程是独立调度的基本单位。<br>    2，拥有资源：进程拥有资源，而线程无<br>    3，并发性：二者都可以<br>    4，系统开销：进程比线程大<br>    5，通信：进程需要同步和互斥，线程可直接读写进程数据段来进行通信。</p>
+<p><u>3，线程的实现方式</u><br>用户级线程：<br>内核级线程：一对一；多对一；多对多（前者对应用户级线程，后者对应内核级线程）</p>
 <blockquote>
-<p>摘要：毛病出在函数 get_malloc中。编译器总是要为函数的每个参数制作临时副本，指针 参数 p 的副本是 _p，编译器使 _p = p 。如果函数体内的程序修改了_p 的内容，就导致 参数 p 的内容作相应的修改。这就是指针可以用作输出参数的原因。在本例中，_p 申请 了新的内存，只是把_p 所指的内存地址改变了，但是 p 丝毫未变。所以函数 get_malloc 并不能输出任何东西。事实上，每执行一次 get_malloc 就会泄露一块内存，因为没有用 free 释放内存。</p>
+<p>Linux都是用户级线程。即线程和进程之间并没有差太多。</p>
+</blockquote>
+<hr>
+<h4 id="（二）处理机调度"><a href="#（二）处理机调度" class="headerlink" title="（二）处理机调度"></a>（二）处理机调度</h4><p><u><strong>1，调度的基本概念</strong></u><br>在多道程序中，进程数量往往多于处理机，需要合理安排其执行方式。<br>多道程序操作系统的基础，是操作系统涉及的核心问题。</p>
+<p><u><strong>2，三级调度</strong></u><br>     高级调度（作业调度）：从外存到内存，分配作业到就绪队列。<br>     中级调度（内存调度）：为提高内存利用率和系统吞吐量，将外存的进程调到内存<br>     低级调度（进程调度）：从就绪队列中选择进程。</p>
+<p><u><strong>3，调度方式</strong></u><br>     剥夺式：<br>     非剥夺式：</p>
+<p><u><strong>4，调度准则：</strong></u><br>     1. CPU利用率：CPU忙/总时间<br>     2. 吞吐量：CPU完成作业数量/所花时间<br>     3. 周转时间：作业完成 - 作业提交<br>                   平均周转时间：总周转时间/作业数<br>                   带权周转时间：作业周转时间/作业实际运行时间<br>                   平均带权周转时间：<br>     4. 等待时间：周转时间 - 运行时间<br>     5. 响应时间：</p>
+<p><u><strong>5，典型的调度算法</strong></u><br>     1. <strong>先来先服务</strong>（非抢占式）（FCFS）:选择最先进入队列的<br>     2. <strong>短作业优先</strong>（SJF，shortest job first）：选择完成时间最短的<br>                   短进程优先(shortext process first )：在某时刻，选择运行时间短的<br>                   短剩余时间优先（shortest remaing time next）(抢占式）<br>     3. <strong>优先级</strong>（抢占式，非抢占式）：选择优先级别最高的<br>     4. <strong>高响应比优先</strong>（highest response ratio next）：选择响应比最高的<br>                   响应比 = （等待时间+要求服务时间）  / 要求服务时间<br>     5. <strong>时间片轮转</strong>(RR, round-robin)：选择就绪队列中的第一个进程，且仅可运行一个时间片<br>                   时间片太大，会退化为FCFS<br>                   时间片太小，进程切换太过频繁<br>     6. <strong>多级反馈队列</strong>（默认抢占式）：融合前几种算法的优点，设置不同优先级的队列。</p>
+<hr>
+<h4 id="（三）进程同步"><a href="#（三）进程同步" class="headerlink" title="（三）进程同步"></a>（三）进程同步</h4><p><u><strong>1，基本概念</strong></u><br>         在多道程序环境下，进程是并发执行的，不同的进程之间存在着相互制约关系，为了协调进程之间的相互制约关系，引入了进程同步的概念。</p>
+<p> <strong>临界资源</strong>：一次仅仅允许一个进程使用的资源。<br> <strong>临界区</strong>：对于临界资源的访问，必须互斥的进行，在每个进程中，访问临界资源的那段代码为临界区。</p>
+<p> <strong>临界资源的访问过程分为4部分</strong>：<br>    1，进入区（entry section<br>    2，临界区 (critical section)<br>    3，退出区 (exit section)<br>    4，剩余区 (remainder section)</p>
+<p> <strong>同步</strong>：（直接制约的关系）<br>         为完成某种任务而建立的两个或多个进程，需要进程之间的协调合作。<br> <strong>互斥</strong>：（间接制约的关系）</p>
+<p>为禁止两个进程同时进入临界区，<strong>同步机制需要遵循</strong>：<br>    1，空闲让进<br>    2，忙则等待<br>    3，有限等待<br>    4，让权等待</p>
+<p><u><strong>2，实现临界区互斥的基本方法：</strong></u><br><strong>软件上：</strong>:<br><strong>1，单标志法：设置一个trun。</strong><br>代码实现：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//p0</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span> != <span class="number">0</span>);</span><br><span class="line">critiacl section;</span><br><span class="line"><span class="literal">true</span> = <span class="number">1</span>;</span><br><span class="line">remainder section;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//p1:</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span> != <span class="number">1</span>);</span><br><span class="line">critical section;</span><br><span class="line"><span class="literal">true</span> = <span class="number">0</span>;</span><br><span class="line">remainder section;</span><br></pre></td></tr></table></figure>
+<p>违背空闲等待：两个进程必须交替进入临界区。若其中一个进程不进入，将一直阻塞另一个进程。<br>容易造成死锁。</p>
+<p><strong>2，双标志先检查法:</strong><br>流程：<br>    1. 询问对方是否在使用临界区，是-等待，不是-进行下一步。<br>    2. 通知对方我在用临界区，标记自己正在使用。<br>    3. 开始使用临界区<br>    4. 使用完毕后，标记自己使用完毕。</p>
+<p>代码实现：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//pi进程</span></span><br><span class="line"><span class="keyword">while</span> (flag[j]);</span><br><span class="line">flag[i] = <span class="literal">true</span>;</span><br><span class="line">critical section;</span><br><span class="line">flag[i] = <span class="literal">false</span>;</span><br><span class="line">remainder section;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//pj进程</span></span><br><span class="line"><span class="keyword">while</span> (flag[i)];</span><br><span class="line">flag[j] = <span class="literal">true</span>;</span><br><span class="line">critical section;</span><br><span class="line">flag[j] = <span class="literal">false</span>;</span><br><span class="line">remainder section;</span><br></pre></td></tr></table></figure>
+<p>优点：<br>    不用交替进入，可连续使用。<br>缺点：<br>    违背忙则等待：当进程同时进入临界区时产生。</p>
+<p><strong>3，双标志后检查法</strong><br>流程：<br>    1. 先表达自己要使用临界区，标记自己要使用。<br>    2. 检查对方是否使用，是-等待，不是-进入下一步<br>    3. 进入临界区<br>    4. 使用完毕后，标记自己使用完毕。</p>
+<p>代码实现：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//pi进程</span></span><br><span class="line">flag[i] = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">while</span> (falsg[j]);</span><br><span class="line">critical section;</span><br><span class="line">flag[i] = <span class="literal">false</span>;</span><br><span class="line">remainder section;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//pj</span></span><br><span class="line">flag[j] = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">while</span> (falg[i]);</span><br><span class="line">critilcal section;</span><br><span class="line">falg[j] = <span class="literal">false</span>;</span><br><span class="line">remainder section;</span><br></pre></td></tr></table></figure>
+<p>缺点：<br>产生饥饿现象：当两个进程都要进入临界区时，都在等待对方，相互谦让，最后谁也进不去。</p>
+<p><strong>4，Peterson算法</strong><br><em>为了防止两个进程为了进入临界区而无限等待，又设置了一个turn。设置的一个谦让意愿的trun,可以解决饥饿问题。最后表达谦让意愿的进程先等待对方</em><br>流程<br>    1. 首先表达自己要使用临界区的意愿，设置标志位，再给对方一个先使用的一个谦让意愿。<br>    2. 检查对方是否想要使用临界区，是-则等待，不是-进行下一步。<br>    3. 使用临界区。</p>
+<p> 代码实现：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//pi进程：</span></span><br><span class="line">flag[i] = <span class="literal">true</span>; trun = j;</span><br><span class="line"><span class="keyword">while</span> (flag[j] &amp;&amp; (<span class="literal">true</span>==j);</span><br><span class="line">critical section;</span><br><span class="line">fals[i] = <span class="literal">false</span>;</span><br><span class="line">remainder section;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//p2进程：</span></span><br><span class="line">falg[j] = <span class="literal">true</span>; <span class="literal">true</span> = i;</span><br><span class="line"><span class="keyword">while</span> (falg[i] &amp;&amp; (<span class="literal">true</span> == i));</span><br><span class="line">critcal section;</span><br><span class="line">remainder section;</span><br></pre></td></tr></table></figure>
+<p>优点：结合单标志法（flag解决临界资源的互斥访问）和双标志后检查法（turn解决饥饿问题）。</p>
+<p> <strong>硬件上：</strong>（有助于理解信号量）<br><strong>1，中断屏蔽方法：开关中断</strong><br>当一个进程执行临界区时，为避免其他进程进入，我们可以直接把进程切换的途径阻止了，即禁止一切中断的发生。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">关中断</span><br><span class="line">临界区</span><br><span class="line">开中断</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>-限制处理机的交替处理程序。<br>-关中断（权限过大）这个权限给用户不合适。</p>
+<p><strong>2，TestAndSet(TS指令、TSL指令)</strong><br>保存Lock原先值（当lock==false时，执行自己），将自己加锁<br> 此指令是原子操作（一气呵成，不可停止）。</p>
+<p> 代码实现：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//为每个临界资源设置一个共享布尔变量lock,表示资源的两种状态：true-被占用，flase-空闲。初值：false。</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> len <span class="title">TestAndSet</span><span class="params">(boolean *lock)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  boolean old;</span><br><span class="line">  old = *lock;<span class="comment">//保存原先的值</span></span><br><span class="line">  *lock = <span class="literal">true</span>;<span class="comment">//自己要用</span></span><br><span class="line">  <span class="keyword">return</span> old;<span class="comment">//返回原先的值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实现的算法</span></span><br><span class="line"><span class="function"><span class="keyword">while</span> <span class="title">TSL</span><span class="params">(&amp;lock)</span></span>;</span><br><span class="line">进程的临界区代码；</span><br><span class="line">lock = <span class="literal">false</span>;</span><br><span class="line">进程的其他代码；</span><br></pre></td></tr></table></figure>
+<pre><code>     3，Swap指令（XCHG）：俩lock交换。
+</code></pre>
+<p> 代码实现：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">swap (boolean *a, boolean *b)</span><br><span class="line">&#123;</span><br><span class="line">  boolean = temp;</span><br><span class="line">  temp = *a;</span><br><span class="line">  *a = *b;</span><br><span class="line">  *b = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用思路：<br>为每个共享资源设置一个共享布尔变量lock,初值-false<br>每个进程中再设置一个局部布尔变量key，用于与lock交换信息。</p>
+<p>代码实现：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">key = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">while</span> (key != <span class="literal">false</span>)</span><br><span class="line">&#123;</span><br><span class="line">  Swap(&amp;lock, &amp;key);<span class="comment">//交换后，lock=true,上锁，表示资源占用。</span></span><br><span class="line">&#125;</span><br><span class="line">critical section;</span><br><span class="line">lock = <span class="literal">false</span>;<span class="comment">//解锁，表示资源释放。</span></span><br><span class="line">remain section;</span><br></pre></td></tr></table></figure>
+<p>不可实现让权等待，从等待进程中随机选择一个，可能导致饥饿。</p>
+<p>注意：在硬件中，1只适用于单处理机，2，3不满足让权等待</p>
+<p><u><strong>3，信号量：</strong></u>（对应semaphore）<br>信号量可以解决互斥与同步问题。<br>它只能被两个标准的原语<code>wait(s)</code>和<code>signal(s)</code>访问， 也可记作P操作和V操作。</p>
+<p><strong>信号量机制：</strong><br> -信号量：资源的剩余数量<br>-分类：</p>
+<ol>
+<li><p>整型信号量：设定一个资源剩余数量的变量int s = n; wait(s); signal(s);</p>
+<p>代码实现：           </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wait(S)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">while</span> (S&lt;=<span class="number">0</span>)</span><br><span class="line">  S = S<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">signal(S)</span><br><span class="line">&#123;</span><br><span class="line">  S = S+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>缺点：没有遵循让权等待，会使进程处于忙等状态。</p>
+</li>
+<li><p>记录型信号量：将还用不上资源的进程放入队列，使用一个结构体实现。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="keyword">int</span> value;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">process</span> *<span class="title">L</span>;</span></span><br><span class="line">&#125;semaphore;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vod <span class="title">wait</span> <span class="params">(semaphore S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  S.value--;<span class="comment">//申请一个资源</span></span><br><span class="line">  <span class="keyword">if</span> (S.value&lt;<span class="number">0</span>)<span class="comment">//表示资源没有了</span></span><br><span class="line">  &#123;</span><br><span class="line">    add <span class="keyword">this</span> process to S.L;<span class="comment">//插入到该类资源的等待队列S.L，满足了让权等待</span></span><br><span class="line">    block(S.L);<span class="comment">//阻塞</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sigal</span><span class="params">(semaphore S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  S.value++;<span class="comment">//释放资源</span></span><br><span class="line">  <span class="keyword">if</span> (S.value&lt;=<span class="number">0</span>)<span class="comment">//当前没有进程运行了</span></span><br><span class="line">  &#123;</span><br><span class="line">    remove a process P from S.L;<span class="comment">//从该类资源的等待队列S.L中释放一个进程运行</span></span><br><span class="line">    wakeup(P);<span class="comment">//唤醒等待的进程</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>整型信号量不满足让权等待，记录型信号量为了进程可以等待提出了阻塞（block）和唤醒（wakeup）的概念。继续完善了wait(),siganl().</p>
+</li>
+</ol>
+<p><strong>用信号量机制实现</strong>：<br> <strong>互斥</strong>：<br> 对一个资源对象设置一个互斥信号（mutex）将其设置为1，说白了就是这个资源只有一个，使用就减一，达到对方不可用的状态。<br>  <strong>同步：</strong><br> 对一个资源对象设置一个同步信号量（s）将其设置为0，同步是时间片的轮转，就是一个进程还没有执行完毕，转而去执行其他的进程，可以理解              为当执行进程2的语句3时，必须先执行进程1的1，2语句，故先让进程2停，让进程1走，故引出前V后P.<br><strong>前继关系：</strong><br>就是同步的树状结构。<br><img src="https://img-blog.csdnimg.cn/20210418211639463.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-8wJGSAPV-1618751334477)(en-resource://database/1062:1)]"></p>
+<p><u><strong>4，管程：</strong></u>(不是重点)<br><strong>类似于C++中的类。</strong><br>为了解决semaphore机制编程麻烦，易出错的问题，而引出。<br><u>组成：</u><br>    1. 共享数据结构<br>    2. 对数据结构初始化的语句。<br>    3. 一组用来访问数据结构的过程（函数）。<br><u>基本特征：</u><br>    1. 各外部进程/线程只能通过管程提供的特定“入口”才能访问共享数据。<br>    2. 每次仅仅允许一个进程在管程内执行某各内部过程。</p>
+<p><u>注意：</u><br>    1. 各进程必须互斥的访问管程的特性是由编译器实现的。<br>    2. 解决同步问题可在管程中设置条件变量及等待/唤醒操作。</p>
+<p><u><strong>5，经典同步问题：</strong></u></p>
+<ol>
+<li>生产者消费者问题<blockquote>
+<p>问题描述：<br>一组生产者进程和一组消费者进程共享一个初始为空，大小为n的缓冲区。<br>只有缓冲区没满时，生产者才能将产品放入缓冲区，否则必须等待。<br>只有缓冲区不空时，消费者才可以从缓冲区中取出产品，否则等待。<br>由于缓冲区是临界资源，他只允许一个生产或者一个消费者访问进行操作。</p>
 </blockquote>
 </li>
 </ol>
-<p>这个程序可以这样改（这个太麻烦了，但也行的通）：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">get_malloc</span><span class="params">(<span class="keyword">char</span> * pstr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  pstr = (<span class="keyword">char</span>*) <span class="built_in">malloc</span>(<span class="number">100</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">  <span class="keyword">if</span> (<span class="literal">NULL</span> == pstr) <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;pstr == %#x\n&quot;</span>, pstr);</span><br><span class="line">  <span class="keyword">return</span> (<span class="keyword">long</span>)pstr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span>* pstr = <span class="literal">NULL</span>;</span><br><span class="line">  pstr = (<span class="keyword">char</span>*)get_malloc(pstr);</span><br><span class="line">  <span class="built_in">memset</span>(&amp;str, <span class="number">0</span>, <span class="keyword">sizeof</span>(str));</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;pstr=%#x\n&quot;</span>, pstr);</span><br><span class="line">  <span class="built_in">strcpy</span>(pstr, <span class="string">&quot;zwwzwwzwwzwwzwwzwwzwwzwwzwwzww&quot;</span>);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, pstr);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样才简洁：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_malloc</span><span class="params">(<span class="keyword">char</span> **p, <span class="keyword">int</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  *p = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(num);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> *str = <span class="literal">NULL</span>;</span><br><span class="line">  get_malloc(&amp;str,<span class="number">100</span>);</span><br><span class="line">  <span class="built_in">memset</span>(&amp;str, <span class="number">0</span>, <span class="keyword">sizeof</span>(str));</span><br><span class="line">  <span class="built_in">strcpy</span>(str, <span class="string">&quot;zwwzwwzwwzwwzww&quot;</span>);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>, str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>问题分析：</p>
+<ol>
+<li>关系：<br>生产者和消费者对缓冲区互斥访问<br>生产者和消费者又存在同步关系，即生产者生产之后，消费者才可以消费。</li>
+<li>设置一个互斥的信号量mutex,实现两者的互斥访问。<br>设置一个信号量记录当前缓冲池中的缓冲数full。<br>设置一个信号量记录当前缓冲池中空的缓冲数empty。<br>代码描述：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置的变量</span></span><br><span class="line">semaphore mutex = <span class="number">1</span>; <span class="comment">//临界区互斥信号量</span></span><br><span class="line">semaphore empty = n; <span class="comment">//空闲缓冲区</span></span><br><span class="line">semaphore full = <span class="number">0</span>; <span class="comment">// 缓冲区初始化为空</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">producer()</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    produce an item  in nextp; <span class="comment">//生产一个产品。</span></span><br><span class="line">    p(empty);(要用什么，p一下)<span class="comment">//获取缓冲区单元</span></span><br><span class="line">    p(mutex);<span class="comment">//进入临界区</span></span><br><span class="line">    add next to buffer;（行为） <span class="comment">//将数据放入缓冲区</span></span><br><span class="line">    v(mutex); <span class="comment">//离开临界u去，释放互斥信号量</span></span><br><span class="line">    v(full); （提供什么，V一下）<span class="comment">//满缓冲区+1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">consumer()</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    p(fulll);</span><br><span class="line">    p(mutex);</span><br><span class="line">    remove an item from buffer;</span><br><span class="line">    v(mutex);</span><br><span class="line">    v(empty);</span><br><span class="line">    consume tne item;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总结：此问题就是一个同步互斥问题的综合而已。</p>
 <ol start="2">
-<li><p>你确定函数返回后，其值还存在吗？</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">get_malloc</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> p[] = <span class="string">&quot;zwwzwwzww&quot;</span>;</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> *str =<span class="literal">NULL</span>;</span><br><span class="line">  str = get_malloc();</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>, str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>调用函数，用完及释放。</p>
-</li>
-<li><p>千万不要使用野指针！</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span>* str = (<span class="keyword">char</span>*) <span class="built_in">malloc</span>(<span class="number">30</span>*<span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">  <span class="keyword">if</span> (str == <span class="literal">NULL</span>) <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  <span class="built_in">strcpy</span>(str, <span class="string">&quot;zwwzwwzww&quot;</span>);</span><br><span class="line">  <span class="built_in">free</span>(str);</span><br><span class="line">  <span class="keyword">if</span> (str != <span class="literal">NULL</span>)</span><br><span class="line">    <span class="built_in">strcpy</span>(str, <span class="string">&quot;zmmzmmzmm&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>二级指针</p>
+<li>对生产者-多消费者<blockquote>
+<p>问题描述：<br>桌子上有一只盘子，每次只能向其中放入一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放 橘子，儿子专等着吃盘子中的橘子，女儿专等着吃盘子中的苹果。只有盘子空时，爸爸或妈妈才 可向盘子中放一个水果。仅当盘子中有自己需要的水果时，儿子或女儿可以从盘子中取出水果。 用PV操作实现上述过程。</p>
+</blockquote>
 </li>
 </ol>
-<p><strong>查找字符串中的字符是否存在，并将查找成功的字符地址返回，失败返回0。</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注意修改地址，我们要传入地址的地址。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">**功能：在strsour字符串中，查找serach，并将其查找到的地址返回到*pstr中。</span></span><br><span class="line"><span class="comment">**返回值：成功返回-true, 失败返回-false。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">serachch</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* strsour, <span class="keyword">char</span> serach, <span class="keyword">char</span> ** ppstr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> *pstrsour = (<span class="keyword">char</span>*) strsour;</span><br><span class="line">  <span class="keyword">while</span> (pstrsour &amp;&amp; (*++pstrsour == serach));</span><br><span class="line">  <span class="keyword">if</span> (*pstrsour != <span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      *ppstr = pstrsour;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> arr[<span class="number">10</span>] = <span class="string">&quot;zwwhappyl&quot;</span>;</span><br><span class="line">  <span class="keyword">char</span> *ptr = arr;</span><br><span class="line">  <span class="keyword">if</span> (serachch(arr, <span class="string">&#x27;h&#x27;</span>, &amp;ptr))</span><br><span class="line">  &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;查找成功！%c地址为%#x\n&quot;</span>, <span class="string">&#x27;h&#x27;</span>, &amp;ptr);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;查找失败！\n&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>思路：<br>这里有4个进程，实际上可以抽象为2个生产者和2个消费者被连接到了一个大小为1的缓冲区上。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//信号量的设置</span></span><br><span class="line">semaphore plate = <span class="number">1</span>;</span><br><span class="line">semaphore apple = <span class="number">0</span>;</span><br><span class="line">semaphore orange = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">dad()</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  prepare an apple;</span><br><span class="line">  p(plate);</span><br><span class="line">  put the apple on the plate;</span><br><span class="line">  v(apple);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mom()</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  prepare an apple;</span><br><span class="line">  p(plate);</span><br><span class="line">  put the orange on the plate;</span><br><span class="line">  v(orange);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">son()</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    p(orange);</span><br><span class="line">    take an orange from the plate;</span><br><span class="line">    v(platr);</span><br><span class="line">    eat the orange;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">daughter()</span><br><span class="line">&#123;</span><br><span class="line">  p(apple);</span><br><span class="line">  take an apple from the plate;</span><br><span class="line">  v(plate);</span><br><span class="line">  eat the apple;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>吸烟者问题<blockquote>
+<p>问题描述：<br>假设一个系统有三个抽烟者进程和一个供应者进程。每个抽烟者不停地卷烟并抽掉它，但是要卷 起并抽掉一支烟，抽烟者需要有三种材料：烟草、纸和胶水。三个抽烟者中，第一个拥有烟草、 第二个拥有纸、第三个拥有胶水。供应者进程无限地ᨀ供三种材料，供应者每次将两种材料放桌 子上，拥有剩下那种材料的抽烟者卷一根烟并抽掉它，并给供应者进程一个信号告诉完成了，供 应者就会放另外两种材料再桌上，这个过程一直重复（让三个抽烟者轮流地抽烟）</p>
+</blockquote>
+</li>
+</ol>
+<p>问题关系：<br>分析：<br>供应者和三个吸烟者分别是同步关系。<br>三个抽烟对吸烟这个动作是互斥关系。<br>思路：<br>这里有四个进程，供应者为三个吸烟者提供材料。三个吸烟者向供应者反馈是否提供材料。</p>
+<p>代码实现：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置信号量</span></span><br><span class="line">semaphore offer1 = <span class="number">0</span>;</span><br><span class="line">semaphore offer2 = <span class="number">0</span>;</span><br><span class="line">semaphore offer3 = <span class="number">0</span>;</span><br><span class="line">semaphore finish = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">process <span class="title">P1</span><span class="params">()</span><span class="comment">//供应者</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    random = 任意一个整数随机数；</span><br><span class="line">    random = random%<span class="number">3</span>;</span><br><span class="line">    <span class="keyword">if</span> (random == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      V(offer1);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (random == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      V(offer2);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">      V(offer3);</span><br><span class="line">    &#125;</span><br><span class="line">    P(finish);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">process <span class="title">P2</span><span class="params">()</span><span class="comment">//拥有烟草者</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    P(offer3);</span><br><span class="line">    拿纸，胶水，卷成烟，抽掉；</span><br><span class="line">    V(finish);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">process <span class="title">P3</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    P(offer2);</span><br><span class="line">    拿烟草，胶水，卷成烟，抽掉；</span><br><span class="line">    V(finish);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">process <span class="title">P4</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    P(offer1);</span><br><span class="line">    拿烟草，纸，卷成烟，抽掉；</span><br><span class="line">    V(finish);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>读者-写者问题<br>问题描述：<br><img src="https://img-blog.csdnimg.cn/20210418211559815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-8JZjWq71-1618751334480)(en-resource://database/1068:1)]"></li>
+</ol>
+<p>问题分析：</p>
+<ol>
+<li>关系分析：<br>读者和写者是互斥的。<br>写者和写者是互斥的。<br>读者和读者不存在互斥问题。</li>
+<li>思路：<br>两个进程：写者和读者。<br>写着：和任何进程是互斥的。<br>读者：必须在实现与写者互斥的同时，实现与其他读者的同步，因此简单的一对P操作，V操作无法解决。需要一个计数器，用来判断是否有读者文件。当有读者时，写者是无法写文件的，此时读者会一直占用文件，当没有读者时，写者才可以写文件，同时，这里不同读者对计数器的访问也应该时互斥的。</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置信号量</span></span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;<span class="comment">//用于记录当前的读者数量</span></span><br><span class="line">semaphore mutex = <span class="number">1</span>;<span class="comment">//用于保护更新count变量时的互斥</span></span><br><span class="line">semaphore rw = <span class="number">1</span>;<span class="comment">//用于保证读者和写者互斥的访问文件</span></span><br><span class="line"></span><br><span class="line">reader()</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    P(mutex);<span class="comment">//互斥访问共享文件</span></span><br><span class="line">    <span class="keyword">if</span> (count == <span class="number">0</span>)<span class="comment">//写入文件</span></span><br><span class="line">    &#123;</span><br><span class="line">      P(rw);<span class="comment">//阻止写进程写</span></span><br><span class="line">     &#125;</span><br><span class="line">    count++;<span class="comment">//读者计数器+1</span></span><br><span class="line">    V(mutex);<span class="comment">//释放互斥变量count</span></span><br><span class="line">    </span><br><span class="line">    reading;<span class="comment">//读取</span></span><br><span class="line">    </span><br><span class="line">    P(mutex);<span class="comment">//互斥访问count变量</span></span><br><span class="line">    count--;<span class="comment">//读者计数器-1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (count == <span class="number">0</span>)<span class="comment">//当最后一个读进程读完共享文件</span></span><br><span class="line">    &#123;</span><br><span class="line">      V(rw);<span class="comment">//允许写进程写</span></span><br><span class="line">    &#125;</span><br><span class="line">    V(mutex);<span class="comment">//释放互斥变量count</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">write()</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    P(rw);<span class="comment">//互斥访问共享文件</span></span><br><span class="line">    writing;</span><br><span class="line">    V(rw);<span class="comment">//释放共享文件</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上进程会导致写进程饿死。</p>
+<p>增加一个信号量 <code>semaphore w = 1//写者优先</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">reader ()</span><br><span class="line">&#123; </span><br><span class="line">  <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">  &#123; </span><br><span class="line">    P(w); <span class="comment">//在无写进程请求时进入</span></span><br><span class="line">    P(mutex); <span class="comment">//互斥访问count变量</span></span><br><span class="line">    <span class="keyword">if</span>(count==<span class="number">0</span>) <span class="comment">//当第一个读进程读共享文件时</span></span><br><span class="line">       P(rw); <span class="comment">//阻止写进程写</span></span><br><span class="line">    count++;<span class="comment">//读者计数器+1</span></span><br><span class="line">    V(mutex); <span class="comment">//释放互斥变量count</span></span><br><span class="line">    V(w); <span class="comment">//回复对共享文件的访问</span></span><br><span class="line">    读文件… </span><br><span class="line">    P(mutex); <span class="comment">//互斥访问count变量</span></span><br><span class="line">    count--; <span class="comment">//读者计数器-1</span></span><br><span class="line">    <span class="keyword">if</span>(count==<span class="number">0</span>) <span class="comment">//当最后一个读进程读完共享文件</span></span><br><span class="line">         V(rw);<span class="comment">//允许写进程写</span></span><br><span class="line">     V(mutex); <span class="comment">//释放互斥变量</span></span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br><span class="line">write()</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    P(w);<span class="comment">//在无写进程请求时进入</span></span><br><span class="line">    P(rw);<span class="comment">//互斥访问共享文件</span></span><br><span class="line">    写文件...</span><br><span class="line">    V(rw);<span class="comment">//释放共享文件</span></span><br><span class="line">    V(w);<span class="comment">//恢复对共享文件的访问</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>读者-写者问题有一个关键特征，即有一个互斥访问的计数器count，因此遇到一个不太好解决的同步互斥问题，要想用互斥访问的计数器count能否解决它。</p>
+<ol start="5">
+<li>哲学家进餐问题<br>问题描述：<br>一张圆桌上坐着5名哲学家，每两个哲学家之间的桌上摆一根筷子，桌子的中间是一碗米饭。哲学 家们倾注毕生的精力用于思考和进餐，哲学家在思考时，并不影响他人。只有当哲学家饥饿时， 才试图拿起左、右两根筷子（一根一根地拿起）。如果筷子已在他人手上，则需等待。饥饿的哲 学家只有同时拿起两根筷子才可以开始进餐，当进餐完毕后，放下筷子继续思考。</li>
+</ol>
+<p>分析：</p>
+<ol>
+<li>关系分析。系统中有5个哲学家进程，5位哲学 家与左右邻居对其中间筷子的访问是互斥关系。 </li>
+<li>整理思路。这个问题中只有互斥关系，但与之前 遇到的问题不同的事，每个哲学家进程需要同时 持有两个临界资源才能开始吃饭。如何避免临界 资源分配不当造成的死锁现象，是哲学家问题的 精髓。 </li>
+<li>信号量设置。定义互斥信号量数组 chopstick[5]={1,1,1,1,1} 用于实现对5个筷子的互 斥访问。并对哲学家按0~4编号，哲学家 i 左边 的筷子编号为 i，右边的筷子编号为 (i+1)%5。</li>
+</ol>
+<p>代码实现：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">semaphore chopstick[<span class="number">5</span>]=&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;; </span><br><span class="line">semaphore mutex = <span class="number">1</span>; <span class="comment">//互斥地取筷子 </span></span><br><span class="line">Pi ()<span class="comment">//i号哲学家的进程</span></span><br><span class="line">&#123; </span><br><span class="line">   <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">   &#123; </span><br><span class="line">     P(mutex); </span><br><span class="line">     P(chopstick[i]); <span class="comment">//拿左 </span></span><br><span class="line">     P(chopstick[(i+<span class="number">1</span>)%<span class="number">5</span>]); <span class="comment">//拿右 </span></span><br><span class="line">     V(mutex);</span><br><span class="line">     吃饭… </span><br><span class="line">     V(chopstick[i]); <span class="comment">//放左 </span></span><br><span class="line">     V(chopstick[(i+<span class="number">1</span>)%<span class="number">5</span>]); <span class="comment">//放右 </span></span><br><span class="line">     思考… </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="（四）死锁"><a href="#（四）死锁" class="headerlink" title="（四）死锁"></a>（四）死锁</h4><p><u>概念：</u><br>有多道程序的并发执行，多个进程争抢资源而造成的一种僵局（互相等待），若无外力作用，这些进程就无法向前推进。</p>
+<p>产生原因：</p>
+<ol>
+<li>系统资源的竞争。</li>
+<li>进程推进顺序非法。</li>
+</ol>
+<p>产生死锁的必要条件：<br>四个条件必须同时成立：</p>
+<ol>
+<li>互斥条件</li>
+<li>不剥夺条件</li>
+<li>请求并保持条件：每个进程保持自己的资源不放的情况下，再去请求另一个资源，而另一个资源正在被其他进程使用。</li>
+<li>循环等待条件：举例：哲学家循环等待的链式等待。</li>
+</ol>
+<p>注意：发生死锁时，一定有循环等待，但是发生循环等待时未必死锁。</p>
+<p><u>死锁的处理策略：</u></p>
+<ol>
+<li>死锁预防<br>设置某些限制条件，破坏产生死锁的4个必要条件中的一个及以上。<br><img src="https://img-blog.csdnimg.cn/20210418211503453.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-Og9P3WCK-1618751334484)(en-resource://database/1072:1)]"></li>
+</ol>
+<ol start="2">
+<li>避免死锁</li>
+</ol>
+<p><em>安全序列：</em><br>是指如果系统按照一种序列分配资源，每个进程都能顺利完成，只要能找出一个安全序列，系统就是安全状态。<br>系统处于安全状态，不会发生死锁，系统处于不安全状态，则可能发生死锁。<br><img src="https://img-blog.csdnimg.cn/20210418211437519.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-MzRS2y5A-1618751334486)(en-resource://database/1074:1)]"></p>
+<ol start="3">
+<li>死锁的检测及解除<br>概念：<ol>
+<li>不阻塞：资源申请充足</li>
+<li>不是孤点：进程至少有一个边相连。<br><img src="https://img-blog.csdnimg.cn/20210418211403291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-CAJEvfAb-1618751334488)(en-resource://database/1076:1)]"></li>
+</ol>
+</li>
+</ol>
+<p>概念：<br>    1. 资源剥夺法。挂起（暂时放到外存上）某些死锁进程，并抢占它的资源，将这些资源分配给 其他的死锁进程。但是应防止被挂起的进程长时间得不到资源而饥饿。<br>    2. 撤销进程法（或称终止进程法）。强制撤销部分、甚至全部死锁进程，并剥夺这些进程的资 源。这种方式的优点是实现简单，但所付出的代价可能会很大。因为有些进程可能已经运行 了很长时间，已经接近结束了，一旦被终止可谓功亏一篑，以后还得从头再来。<br>    3. 进程回退法。让一个或多个死锁进程回退到足以避免死锁的地步。这就要求系统要记录进程 的历史信息，设置还原点<br><img src="https://img-blog.csdnimg.cn/20210418211322463.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
     
 
@@ -405,7 +519,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/12/zhizheng/" title="指针" target="_blank">https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/12/zhizheng/</a>
+          <a href="https://github.com/chongqiu00/chongqiu00.github.io.git/2021/04/18/OS_process/" title="进程管理" target="_blank">https://github.com/chongqiu00/chongqiu00.github.io.git/2021/04/18/OS_process/</a>
         </li>
         
         <li>
@@ -427,7 +541,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C/C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
         		</li>
       		
 		</ul>
@@ -483,7 +597,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/12/zhizheng/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://github.com/chongqiu00/chongqiu00.github.io.git/2021/04/18/OS_process/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -498,15 +612,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2021/03/15/socket/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          socket通信
-        
-      </div>
-    </a>
   
+    <a href="/2021/03/16/Net_ftp/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ftp协议及其他协议</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -531,7 +641,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%EF%BC%8C%E6%8C%87%E9%92%88"><span class="toc-number">1.</span> <span class="toc-text">一，指针</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1%EF%BC%8C%E6%B8%85%E6%A5%9A%E5%9B%9B%E4%B8%AA%E5%85%B3%E4%BA%8E%E6%8C%87%E9%92%88%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.0.1.</span> <span class="toc-text">1.1，清楚四个关于指针的概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2%EF%BC%8C%E6%8C%87%E9%92%88%E7%9A%84%E5%A4%A7%E5%B0%8F"><span class="toc-number">1.0.2.</span> <span class="toc-text">1.2，指针的大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3%EF%BC%8C%E7%86%9F%E6%82%89-amp-%E5%92%8C-%E4%B8%A4%E4%B8%AA%E7%AC%A6%E5%8F%B7"><span class="toc-number">1.0.3.</span> <span class="toc-text">1.3，熟悉&amp; 和 * 两个符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4%EF%BC%8C%E6%8C%87%E9%92%88%E5%92%8C%E6%95%B0%E7%BB%84"><span class="toc-number">1.0.4.</span> <span class="toc-text">1.4，指针和数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5%EF%BC%8C%E6%8C%87%E9%92%88%E5%92%8C%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-number">1.0.5.</span> <span class="toc-text">1.5，指针和结构体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6%EF%BC%8C%E6%8C%87%E9%92%88%E5%92%8C%E5%87%BD%E6%95%B0"><span class="toc-number">1.0.6.</span> <span class="toc-text">1.6，指针和函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7%EF%BC%8C%E6%8C%87%E9%92%88%E5%92%8Cconst"><span class="toc-number">1.0.7.</span> <span class="toc-text">1.7，指针和const</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-8-%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8"><span class="toc-number">1.0.8.</span> <span class="toc-text">1.8 指针和引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-9%EF%BC%8C%E6%8C%87%E9%92%88%E7%9A%84%E7%81%B5%E6%B4%BB%E6%80%A7"><span class="toc-number">1.0.9.</span> <span class="toc-text">1.9，指针的灵活性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-9%EF%BC%8C%E5%87%A0%E9%81%93%E5%85%B3%E4%BA%8E%E6%8C%87%E9%92%88%E7%9A%84%E9%A2%98%E7%9B%AE"><span class="toc-number">1.0.10.</span> <span class="toc-text">1.9，几道关于指针的题目</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">进程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">（一）进程与线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6"><span class="toc-number">1.2.</span> <span class="toc-text">（二）处理机调度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="toc-number">1.3.</span> <span class="toc-text">（三）进程同步</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E6%AD%BB%E9%94%81"><span class="toc-number">1.4.</span> <span class="toc-text">（四）死锁</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -558,9 +668,9 @@
     <script src="/lib/gitment.js"></script>
   
   <script>
-    <!-- id: "指针" -->
+    <!-- id: "进程管理" -->
     var gitment = new Gitment({
-      id: "20210312000000",
+      id: "20210418000000",
       owner: 'chongqiu00',
       repo: 'yilia-plus-demo',
       oauth: {
@@ -694,15 +804,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -710,11 +812,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
             
             <div class="clearfix"></div>

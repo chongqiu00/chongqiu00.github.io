@@ -10,12 +10,12 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="C语言">
+  <meta name="description" content="C语言实现">
 <meta property="og:type" content="article">
 <meta property="og:title" content="队列实现（数组）">
-<meta property="og:url" content="https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/16/queue/index.html">
+<meta property="og:url" content="https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/16/Str_queue/index.html">
 <meta property="og:site_name" content="chongqiu00的破壳">
-<meta property="og:description" content="C语言">
+<meta property="og:description" content="C语言实现">
 <meta property="og:locale">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210415101208821.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210415101100599.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70">
@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210415101320272.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2021041523003687.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5nd2Vud2VuMTIzNDU=,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2021-03-15T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-04-16T14:53:49.417Z">
+<meta property="article:modified_time" content="2021-04-18T13:21:55.046Z">
 <meta property="article:author" content="chongqiu00">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
@@ -84,11 +84,17 @@
 			
 				<li><a href="/tags" target="_blank">主页</a></li>
 			
-				<li><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" target="_blank">计算机网络</a></li>
+				<li><a href="/tags/C/C++/" target="_blank">C/C++</a></li>
 			
 				<li><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" target="_blank">数据结构</a></li>
 			
+				<li><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" target="_blank">计算机网络</a></li>
+			
+				<li><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" target="_blank">操作系统</a></li>
+			
 				<li><a href="/tags/Linux/" target="_blank">Linux</a></li>
+			
+				<li><a href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" target="_blank">网络编程</a></li>
 			
 			</ul>
 		</nav>
@@ -169,6 +175,12 @@
 			
 				
 			
+				
+			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -206,13 +218,19 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/tags">主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/C/C++/">C/C++</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/Linux/">Linux</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/tags/Linux/">Linux</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">网络编程</a></li>
 		        
 				</ul>
 			</nav>
@@ -228,7 +246,7 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-queue" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Str_queue" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -247,7 +265,7 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2021/03/16/queue/" class="archive-article-date">
+<a href="/2021/03/16/Str_queue/" class="archive-article-date">
         <time datetime="2021-03-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
 </a>
 
@@ -323,7 +341,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/16/queue/" title="队列实现（数组）" target="_blank">https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/16/queue/</a>
+          <a href="https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/16/Str_queue/" title="队列实现（数组）" target="_blank">https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/16/Str_queue/</a>
         </li>
         
         <li>
@@ -401,7 +419,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/16/queue/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/16/Str_queue/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -416,18 +434,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2021/03/16/OS/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/03/16/Net_ftp/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          只是占个地
+          ftp协议及其他协议
         
       </div>
     </a>
   
   
-    <a href="/2021/03/16/ftp/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ftp协议及其他协议</div>
+    <a href="/2021/03/16/Str_stack/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">栈实现（结点）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -617,15 +635,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -633,11 +643,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
             
             <div class="clearfix"></div>

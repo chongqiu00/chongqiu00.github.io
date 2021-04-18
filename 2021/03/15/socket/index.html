@@ -10,17 +10,17 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="Linux网络编程">
+  <meta name="description" content="Linux下">
 <meta property="og:type" content="article">
 <meta property="og:title" content="socket通信">
 <meta property="og:url" content="https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/15/socket/index.html">
 <meta property="og:site_name" content="chongqiu00的破壳">
-<meta property="og:description" content="Linux网络编程">
+<meta property="og:description" content="Linux下">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-03-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-04-16T14:53:39.659Z">
+<meta property="article:modified_time" content="2021-04-18T13:22:25.521Z">
 <meta property="article:author" content="chongqiu00">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="网络编程">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="chongqiu00的破壳" type="application/atom+xml">
@@ -78,11 +78,17 @@
 			
 				<li><a href="/tags" target="_blank">主页</a></li>
 			
-				<li><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" target="_blank">计算机网络</a></li>
+				<li><a href="/tags/C/C++/" target="_blank">C/C++</a></li>
 			
 				<li><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" target="_blank">数据结构</a></li>
 			
+				<li><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" target="_blank">计算机网络</a></li>
+			
+				<li><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" target="_blank">操作系统</a></li>
+			
 				<li><a href="/tags/Linux/" target="_blank">Linux</a></li>
+			
+				<li><a href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" target="_blank">网络编程</a></li>
 			
 			</ul>
 		</nav>
@@ -163,6 +169,12 @@
 			
 				
 			
+				
+			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -200,13 +212,19 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/tags">主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/C/C++/">C/C++</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/Linux/">Linux</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/tags/Linux/">Linux</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">网络编程</a></li>
 		        
 				</ul>
 			</nav>
@@ -390,7 +408,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络编程</a>
         		</li>
       		
 		</ul>
@@ -461,7 +479,7 @@
 
 <nav id="article-nav">
   
-    <a href="/2021/03/16/stack/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/03/16/Str_stack/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -471,7 +489,7 @@
     </a>
   
   
-    <a href="/2021/03/12/zhizheng/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2021/03/12/C_zhizheng/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">指针</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -662,15 +680,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -678,11 +688,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
             
             <div class="clearfix"></div>
