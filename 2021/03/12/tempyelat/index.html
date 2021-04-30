@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/chongqiu00/chongqiu00.github.io.git">
-  <title>Archives: 2021/4 | chongqiu00的破壳</title>
+  <title>实现一个简单的通用数组模块 | chongqiu00的破壳</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="在校本科生">
-<meta property="og:type" content="website">
-<meta property="og:title" content="chongqiu00的破壳">
-<meta property="og:url" content="https://github.com/chongqiu00/chongqiu00.github.io.git/archives/2021/04/index.html">
+  <meta name="description" content="模块">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实现一个简单的通用数组模块">
+<meta property="og:url" content="https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/12/tempyelat/index.html">
 <meta property="og:site_name" content="chongqiu00的破壳">
-<meta property="og:description" content="在校本科生">
+<meta property="og:description" content="模块">
 <meta property="og:locale">
+<meta property="article:published_time" content="2021-03-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-04-30T13:25:33.533Z">
 <meta property="article:author" content="chongqiu00">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="模块">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="chongqiu00的破壳" type="application/atom+xml">
@@ -225,65 +229,286 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-tempyelat" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/04/18/OS_process/" class="archive-article-date">
-        <time datetime="2021-04-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-18</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/04/18/OS_process/" target="_blank">进程管理</a>
   
+    <h1 class="article-title" itemprop="name">
+      实现一个简单的通用数组模块
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2021/03/12/tempyelat/" class="archive-article-date">
+        <time datetime="2021-03-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-12</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">649字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">3分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>功能：</p>
+<ul>
+<li>可以对内置数据类型以及自定义数据类型的数据进行存储</li>
+<li>将数组中的数据存储到堆区</li>
+<li>构造函数中可以传入数组的容量</li>
+<li>提供对应的拷贝构造函数以及operator=防止浅拷贝问题</li>
+<li>提供尾插法和尾删法对数组中的数据进行增加和删除</li>
+<li>可以通过下标的方式访问数组中的元素</li>
+<li>可以获取数组中当前元素个数和数组的容量<span id="more"></span>
+
+</li>
+</ul>
+<p>类声明：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Array</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    Array(<span class="keyword">const</span> <span class="keyword">int</span> capacity = <span class="number">0</span>); <span class="comment">//默认</span></span><br><span class="line">    Array(<span class="keyword">const</span> Array&amp; <span class="built_in">array</span>); <span class="comment">//拷贝</span></span><br><span class="line">    ~Array();</span><br><span class="line"></span><br><span class="line">    Array&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Array&amp; arry);  <span class="comment">//重载=</span></span><br><span class="line">	T&amp; <span class="keyword">operator</span> [](<span class="keyword">int</span> index);          <span class="comment">//重载[] 操作符  arr[0]</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>-&gt;pAddress[index]; <span class="comment">//不考虑越界，用户自己去处理</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Push_back</span><span class="params">(<span class="keyword">const</span> T &amp; val)</span></span>;        <span class="comment">//尾插法</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Pop_back</span><span class="params">()</span></span>;                 <span class="comment">//尾删法</span></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getCapacity</span><span class="params">()</span></span>;               <span class="comment">//获取数组容量</span></span><br><span class="line">	<span class="function"><span class="keyword">int</span>	<span class="title">getSize</span><span class="params">()</span></span>;                   <span class="comment">//获取数组大小</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    T* m_array;</span><br><span class="line">    <span class="keyword">int</span> m_size;</span><br><span class="line">    <span class="keyword">int</span> m_capacity;</span><br><span class="line">&#125;;</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+
+<p>类中方法类外实现：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//默认</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line">Array&lt;T&gt;::Array(<span class="keyword">const</span> <span class="keyword">int</span> capacity)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (capacity==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m_array = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m_size = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m_capacity = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m_array = <span class="keyword">new</span> T[capacity];</span><br><span class="line">        <span class="keyword">this</span>-&gt;m_size = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m_capacity = capacity;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//拷贝</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line">Array&lt;T&gt;::Array(<span class="keyword">const</span> Array&amp; <span class="built_in">array</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//清空原有数据</span></span><br><span class="line">    <span class="keyword">this</span>-&gt;m_array = <span class="keyword">new</span> T[<span class="built_in">array</span>.m_capacity];</span><br><span class="line">    <span class="keyword">this</span>-&gt;m_size = <span class="built_in">array</span>.m_size;</span><br><span class="line">    <span class="keyword">this</span>-&gt;m_capacity = <span class="built_in">array</span>.m_capacity;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//拷贝</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="built_in">array</span>.m_size; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m_array[i] = <span class="built_in">array</span>.m_array[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这里注意防止浅拷贝，要释放原来的堆区内存数据。</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line">Array&lt;T&gt;&amp; Array&lt;T&gt;::<span class="keyword">operator</span>= (<span class="keyword">const</span> Array&amp; <span class="built_in">array</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> ( <span class="keyword">this</span>-&gt;m_array != <span class="literal">NULL</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">delete</span> [] m_array;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m_capacity = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m_size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//清空原有数据</span></span><br><span class="line">    <span class="keyword">this</span>-&gt;m_array = <span class="keyword">new</span> T[<span class="built_in">array</span>.m_capacity];</span><br><span class="line">    <span class="keyword">this</span>-&gt;m_size = <span class="built_in">array</span>.m_size;</span><br><span class="line">    <span class="keyword">this</span>-&gt;m_capacity = <span class="built_in">array</span>.m_capacity;</span><br><span class="line">    <span class="comment">//拷贝</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="built_in">array</span>.m_size; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m_array[i] = <span class="built_in">array</span>.m_array[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>*;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line">T&amp; Array&lt;T&gt;::<span class="keyword">operator</span> [](<span class="keyword">int</span> index);          <span class="comment">//重载[] 操作符  arr[0]</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>-&gt;pAddress[index]; <span class="comment">//不考虑越界，用户自己去处理</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//尾插法</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="keyword">void</span> Array&lt;T&gt;::Push_back(<span class="keyword">const</span> T &amp; val)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> ( <span class="keyword">this</span>-&gt;m_capacity == <span class="keyword">this</span>-&gt;m_size ) <span class="comment">//扩容</span></span><br><span class="line">    &#123;</span><br><span class="line">        NewArray = <span class="keyword">new</span> T[<span class="keyword">this</span>-&gt;m_capacity + <span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="keyword">this</span>-&gt;m_size; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            NewArray[i] = <span class="keyword">this</span>-&gt;m_array[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">delete</span> [] <span class="keyword">this</span>-&gt;m_array;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m_array = NewArray;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>-&gt;m_array[<span class="keyword">this</span>-&gt;m_size] = val;</span><br><span class="line">    <span class="keyword">this</span>-&gt;m_size ++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//尾删法</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="keyword">void</span> Array&lt;T&gt;::Pop_back()      </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>-&gt;m_size == <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">this</span>-&gt;m_size --;</span><br><span class="line">&#125;           </span><br><span class="line"></span><br><span class="line"><span class="comment">//获取数组容量</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="keyword">int</span> Array&lt;T&gt;::getCapacity()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>-&gt;m_capacity;</span><br><span class="line">&#125;     </span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="keyword">int</span> Array&lt;T&gt;::getSize()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>-&gt;m_size;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          chongqiu00
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/12/tempyelat/" title="实现一个简单的通用数组模块" target="_blank">https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/12/tempyelat/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模块</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+    
 
     
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://github.com/chongqiu00/chongqiu00.github.io.git/2021/03/12/tempyelat/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+<nav id="article-nav">
+  
+    <a href="/2021/03/12/string%E5%AE%9E%E7%8E%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          实现简单String类
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+  
+  <div id="gitment-ctn"></div>
+  
+    <!-- 中文 -->
+    <link rel="stylesheet" href="/lib/gitment.css">
+    <script src="/lib/gitment.js"></script>
+  
+  <script>
+    <!-- id: "实现一个简单的通用数组模块" -->
+    var gitment = new Gitment({
+      id: "20210312000000",
+      owner: 'chongqiu00',
+      repo: 'yilia-plus-demo',
+      oauth: {
+        client_id: '65fd2a8008701a9516da',
+        client_secret: 'b26fe24cbb09b60dbfe26684109c2a2151dd8dc5',
+      },
+    })
+    gitment.render('gitment-ctn')
+  </script>
+
+
+  
+
 
 
           </div>
@@ -324,8 +549,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
