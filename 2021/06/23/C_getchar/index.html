@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/chongqiu00/chongqiu00.github.io.git">
-  <title>字符输入、输出验证 | chongqiu00的破壳</title>
+  <title>字符输入、输出的验证编程 | chongqiu00的破壳</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="问题问题一：  用户输入的信息是否合法？  例如，需要输入一个整型变量，我们如何判断用户输入的变量是否符合要求？ 问题二：  用户使用getchar函数时，如何去处理我们不需要的变量部分？例如，我们只需要一串我们输入的字符串中的第一个字符，我们需要对我们不需要的字符部分做出相应的解决方案。      不需要部分跳转       不需要部分显示">
+  <meta name="description" content="问题问题一：  用户输入的信息是否合法？  例如，需要输入一个整型变量，我们如何判断用户输入的变量是否符合要求？ 问题二：  用户使用getchar函数时，如何去处理我们不需要的变量部分？例如，我们只需要一串我们输入的字符串中的第一个字符，我们需要对我们不需要的字符部分做出相应的解决方案。做到不需要部分跳转，不需要部分显示。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="字符输入、输出验证">
+<meta property="og:title" content="字符输入、输出的验证编程">
 <meta property="og:url" content="https://github.com/chongqiu00/chongqiu00.github.io.git/2021/06/23/C_getchar/index.html">
 <meta property="og:site_name" content="chongqiu00的破壳">
-<meta property="og:description" content="问题问题一：  用户输入的信息是否合法？  例如，需要输入一个整型变量，我们如何判断用户输入的变量是否符合要求？ 问题二：  用户使用getchar函数时，如何去处理我们不需要的变量部分？例如，我们只需要一串我们输入的字符串中的第一个字符，我们需要对我们不需要的字符部分做出相应的解决方案。      不需要部分跳转       不需要部分显示">
+<meta property="og:description" content="问题问题一：  用户输入的信息是否合法？  例如，需要输入一个整型变量，我们如何判断用户输入的变量是否符合要求？ 问题二：  用户使用getchar函数时，如何去处理我们不需要的变量部分？例如，我们只需要一串我们输入的字符串中的第一个字符，我们需要对我们不需要的字符部分做出相应的解决方案。做到不需要部分跳转，不需要部分显示。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-06-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-06-26T03:25:06.059Z">
+<meta property="article:modified_time" content="2021-06-26T03:29:26.365Z">
 <meta property="article:author" content="chongqiu00">
 <meta property="article:tag" content="编程语言">
 <meta name="twitter:card" content="summary">
@@ -229,7 +229,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      字符输入、输出验证
+      字符输入、输出的验证编程
     </h1>
   
 
@@ -255,7 +255,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">409字</span>
+      <span class="post-count">411字</span>
     </span>
   </span>
 
@@ -278,32 +278,33 @@
     <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>问题一：</p>
 <ul>
 <li>用户输入的信息是否合法？<br>  例如，需要输入一个整型变量，我们如何判断用户输入的变量是否符合要求？</li>
-<li>问题二：<br>  用户使用getchar函数时，如何去处理我们不需要的变量部分？<br>例如，我们只需要一串我们输入的字符串中的第一个字符，我们需要对我们不需要的字符部分做出相应的解决方案。<pre><code>      不需要部分跳转
-      不需要部分显示
-</code></pre>
-</li>
+<li>问题二：<br>  用户使用getchar函数时，如何去处理我们不需要的变量部分？<br>例如，我们只需要一串我们输入的字符串中的第一个字符，我们需要对我们不需要的字符部分做出相应的解决方案。做到不需要部分跳转，不需要部分显示。</li>
 </ul>
 <span id="more"></span>
 <h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><ul>
 <li>做到人机交互</li>
 <li>防止用户非法输入</li>
-<li>消除输入行<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2></li>
+<li>消除输入行</li>
 </ul>
-<ol>
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><ol>
 <li>getchar()重复输入，直到输入标志符号结束。</li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> ((ch = getchar()) != <span class="string">&#x27;#&#x27;</span>)</span><br><span class="line">	<span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+
 <ol start="2">
 <li><p>getchar（）将用户输入错误的字符显示处理。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> ((ch = getchar()) != <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">    <span class="built_in">putchar</span>(ch);</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> ((ch = getchar()) != <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">    <span class="built_in">putchar</span>(ch);</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>消除输入行</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (getchar() != <span class="string">&#x27;y&#x27;</span>)<span class="comment">//只读取输入的第一个字符，剩余字符被跳过</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;这个数对吗？\n  %d\n&quot;</span>,++guess);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (getchar（） != <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        <span class="keyword">continue</span>;           <span class="comment">//跳过剩余的输入行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (getchar() != <span class="string">&#x27;y&#x27;</span>)<span class="comment">//只读取输入的第一个字符，剩余字符被跳过</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;这个数对吗？\n  %d\n&quot;</span>,++guess);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (getchar（） != <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        <span class="keyword">continue</span>;           <span class="comment">//跳过剩余的输入行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>scanf返回值判断用户输入是否合法</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;a,&amp;b) !=<span class="number">2</span>)</span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">&quot;输入非法\n);</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>消除用户的非法输入，只取有效输入</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get_int</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;        </span><br><span class="line"><span class="keyword">char</span> ch;        </span><br><span class="line"><span class="keyword">int</span> input;        </span><br><span class="line"><span class="keyword">while</span> (scanf_s(<span class="string">&quot;%d&quot;</span>, &amp;input) != <span class="number">1</span>)        </span><br><span class="line">&#123;               </span><br><span class="line"><span class="keyword">while</span> ((ch = getchar()) != <span class="string">&#x27;\n&#x27;</span>)               </span><br><span class="line"><span class="built_in">putchar</span>(ch);               </span><br><span class="line">printf_s(<span class="string">&quot;\n&quot;</span>);               </span><br><span class="line">printf_s(<span class="string">&quot;输入非法！\n&quot;</span>);               </span><br><span class="line">printf_s(<span class="string">&quot;请重新输入类似：0，2，55.\n&quot;</span>);        &#125;        </span><br><span class="line"><span class="keyword">return</span> input;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>只截取输入的第一个字符</p>
+</li>
+<li><p>只截取输入的第一个字符</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">get_frist</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">        <span class="keyword">char</span> ch;</span><br><span class="line">        ch = getchar();</span><br><span class="line">        <span class="keyword">while</span> (getchar() != <span class="string">&#x27;\n&#x27;</span>) <span class="comment">//注意此句的作用的消除掉缓冲区里面的字符</span></span><br><span class="line">               <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">return</span> ch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -343,7 +344,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://github.com/chongqiu00/chongqiu00.github.io.git/2021/06/23/C_getchar/" title="字符输入、输出验证" target="_blank">https://github.com/chongqiu00/chongqiu00.github.io.git/2021/06/23/C_getchar/</a>
+          <a href="https://github.com/chongqiu00/chongqiu00.github.io.git/2021/06/23/C_getchar/" title="字符输入、输出的验证编程" target="_blank">https://github.com/chongqiu00/chongqiu00.github.io.git/2021/06/23/C_getchar/</a>
         </li>
         
         <li>
@@ -492,7 +493,7 @@
     <script src="/lib/gitment.js"></script>
   
   <script>
-    <!-- id: "字符输入、输出验证" -->
+    <!-- id: "字符输入、输出的验证编程" -->
     var gitment = new Gitment({
       id: "20210623000000",
       owner: 'chongqiu00',
@@ -632,19 +633,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,7 +645,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">类实现</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">
