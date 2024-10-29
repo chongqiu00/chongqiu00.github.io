@@ -1,7 +1,17 @@
 @font-face {
     font-family: 'feiyun';
     font-display: swap;
-    src: url('/butterfly/fonts/feiyun.ttf') format("truetype"); /* 修改成你的字体 */
+    src: url('/fonts/feiyun.ttf') format("truetype"); /* 修改成你的字体 */
+}
+
+h1#site-title {
+    font-family:arzhu!important
+}
+span#subtitle {
+    font-family:arzhu!important
+}
+a#site-name {
+    font-family:arzhu!important
 }
 
 #recent-posts>.recent-post-item,.layout_page>div:first-child:not(.recent-posts),.layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post {
